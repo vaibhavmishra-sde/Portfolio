@@ -4,7 +4,7 @@ A modern, premium, responsive personal portfolio website built for **Vaibhav Mis
 
 ## 🌐 Live Demo
 
-> Deployed on Vercel / Netlify — link will appear here after deployment.
+https://portfolio-vaibhavmishra-sde.vercel.app/
 
 ## 🛠️ Tech Stack
 
