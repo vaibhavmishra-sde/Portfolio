@@ -7,7 +7,8 @@ export const Contact: React.FC = () => {
   const { personal } = PORTFOLIO_DATA;
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-  const [formSent, setFormSent] = useState(false);
+  const [name, setName] = useState('');
+  const [senderEmail, setSenderEmail] = useState('');
   const [message, setMessage] = useState('');
 
   const copyEmail = () => {
@@ -24,12 +25,9 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!message.trim()) return;
-    setFormSent(true);
-    setTimeout(() => {
-      setFormSent(false);
-      setMessage('');
-    }, 4000);
+    const subject = `Portfolio enquiry from ${name.trim()}`;
+    const body = `Name: ${name.trim()}\nEmail: ${senderEmail.trim()}\n\n${message.trim()}`;
+    window.location.href = `mailto:${personal.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -143,7 +141,7 @@ export const Contact: React.FC = () => {
                 Send a Quick Message
               </h3>
               <p className="text-xs text-slate-400 mb-6">
-                Recruiters and hiring managers can initiate contact directly.
+                Fill this in to open a pre-filled email draft in your default mail app.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -154,6 +152,8 @@ export const Contact: React.FC = () => {
                   <input
                     type="text"
                     required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Engineering Recruiter / Hiring Manager"
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
@@ -166,6 +166,8 @@ export const Contact: React.FC = () => {
                   <input
                     type="email"
                     required
+                    value={senderEmail}
+                    onChange={(e) => setSenderEmail(e.target.value)}
                     placeholder="recruiter@company.com"
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
@@ -187,20 +189,10 @@ export const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  disabled={formSent}
                   className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-[#08090D] font-bold text-sm flex items-center justify-center gap-2 transition-all glow-cyan-sm cursor-pointer"
                 >
-                  {formSent ? (
-                    <>
-                      <Check className="w-4 h-4" />
-                      <span>Message Sent! Vaibhav will respond promptly.</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      <span>Send Message</span>
-                    </>
-                  )}
+                  <Send className="w-4 h-4" />
+                  <span>Open Email Draft</span>
                 </button>
               </form>
 
