@@ -6,12 +6,12 @@ export const About: React.FC = () => {
   const { quickFacts } = PORTFOLIO_DATA;
 
   const coreFocusAreas = [
-    'SQL Querying & Optimization',
-    'Python (Pandas, NumPy, Matplotlib)',
-    'Interactive Power BI Dashboards',
-    'Excel Advanced Analysis & Formulas',
-    'Data Cleaning & Transformation',
-    'Business Intelligence & KPI Tracking'
+    'React & TypeScript Interfaces',
+    'JavaScript & Python Foundations',
+    'SQL & Relational Data',
+    'Responsive Web Development',
+    'Git & Collaborative Workflows',
+    'Problem Solving & Debugging'
   ];
 
   return (
@@ -28,7 +28,7 @@ export const About: React.FC = () => {
             About <span className="gradient-text-cyan-purple">Me</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
-            Connecting mathematical curiosity with real-world business context.
+            Turning curiosity into practical, user-focused software.
           </p>
         </div>
 
@@ -41,22 +41,22 @@ export const About: React.FC = () => {
             <div className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] glass-panel space-y-4">
               <h3 className="text-xl font-bold text-white flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-cyan-400" />
-                Data Analytics & Problem Solving
+                Software Development & Problem Solving
               </h3>
               
               <p className="text-slate-300 text-base leading-relaxed">
-                I'm <strong className="text-cyan-300 font-semibold">{PORTFOLIO_DATA.personal.name}</strong>, a BCA student at <strong className="text-white">Parul University, Vadodara</strong> focused on <span className="text-cyan-400 font-medium">Data Analytics</span>, <span className="text-purple-400 font-medium">Business Intelligence</span>, and building data-driven solutions.
+                I'm <strong className="text-cyan-300 font-semibold">{PORTFOLIO_DATA.personal.name}</strong>, a BCA student at <strong className="text-white">Parul University, Vadodara</strong> focused on <span className="text-cyan-400 font-medium">software development</span>, <span className="text-purple-400 font-medium">web technologies</span>, and building useful digital products.
               </p>
 
               <p className="text-slate-400 text-sm leading-relaxed">
-                My work centers around processing structured and unstructured datasets, writing clean optimized SQL queries, aggregating metrics with Python, and translating transactional numbers into actionable visual Power BI dashboards for strategic decision making.
+                I enjoy turning ideas into clear, maintainable interfaces, learning the systems behind them, and improving them through thoughtful iteration. My current work combines React and TypeScript on the frontend with Python, SQL, Firebase, and Git-based workflows.
               </p>
             </div>
 
             {/* Core Competencies Checklist */}
             <div className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430]">
               <h4 className="text-xs font-mono uppercase text-slate-400 tracking-wider mb-4">
-                Core Analytical Toolkit
+                Core Development Toolkit
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {coreFocusAreas.map((area, idx) => (

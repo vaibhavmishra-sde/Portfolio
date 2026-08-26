@@ -20,7 +20,7 @@ export const Journey: React.FC = () => {
             Learning & <span className="gradient-text-cyan-purple">Building</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
-            A chronological timeline of academic milestones, certifications, open-source selections, and analytics project execution.
+            A timeline of academic milestones, projects, open-source selections, and ongoing software development growth.
           </p>
         </div>
 

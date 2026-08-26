@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
                 {PORTFOLIO_DATA.personal.name}
               </div>
               <div className="text-xs font-mono text-cyan-400">
-                Data Analyst • Business Analytics • Python • SQL
+                Software Developer • React • TypeScript • Python
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
         {/* Footer Subtext */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono gap-2">
           <div>
-            Designed & built with curiosity, data, and code.
+            Designed & built with curiosity, care, and code.
           </div>
           <div>
             © 2026 {PORTFOLIO_DATA.personal.name}. All rights reserved.

@@ -43,10 +43,10 @@ export const Contact: React.FC = () => {
             <span>GET IN TOUCH</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Let's build something <span className="gradient-text-cyan-purple">with data</span>.
+            Let's build something <span className="gradient-text-cyan-purple">useful</span>.
           </h2>
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mt-4">
-            I'm currently looking for opportunities to apply my skills in Data Analytics, Business Intelligence, and data-driven problem solving.
+            I'm currently looking for opportunities to apply my software development skills, curiosity, and problem-solving mindset.
           </p>
         </div>
 
@@ -154,7 +154,7 @@ export const Contact: React.FC = () => {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Analytics Manager / Recruiter"
+                    placeholder="e.g. Engineering Recruiter / Hiring Manager"
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
                 </div>
@@ -180,7 +180,7 @@ export const Contact: React.FC = () => {
                     rows={4}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Hi Vaibhav, we reviewed your portfolio and would like to discuss a Data Analyst Internship opportunity..."
+                    placeholder="Hi Vaibhav, we reviewed your portfolio and would like to discuss a software developer opportunity..."
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors resize-none"
                   />
                 </div>

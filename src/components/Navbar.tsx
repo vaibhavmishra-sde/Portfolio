@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
     { id: 'overview', label: 'Overview' },
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
-    { id: 'pipeline', label: 'Data Pipeline' },
+    { id: 'pipeline', label: 'Workflow' },
     { id: 'projects', label: 'Projects' },
     { id: 'opensource', label: 'Open Source' },
     { id: 'certifications', label: 'Certifications' },
@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
                 {PORTFOLIO_DATA.personal.name}
               </span>
               <span className="text-[11px] font-mono text-cyan-400/90 tracking-wide">
-                Data Analyst
+                Software Developer
               </span>
             </div>
           </a>
@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
             {/* Internship Status Badge */}
             <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-medium">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>Open to Data Internships</span>
+              <span>Open to Developer Internships</span>
             </div>
 
             {/* Resume Button */}
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
         <div className="lg:hidden bg-[#08090D]/95 backdrop-blur-2xl border-b border-[#1F2430] px-4 pt-3 pb-6 animate-in slide-in-from-top duration-200">
           <div className="mb-3 px-3 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Open to Data Analyst Internships</span>
+            <span>Open to Developer Internships</span>
           </div>
 
           <nav className="flex flex-col gap-1">
