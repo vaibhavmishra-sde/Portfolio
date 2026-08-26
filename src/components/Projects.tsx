@@ -179,7 +179,7 @@ export const Projects: React.FC = () => {
             Featured <span className="gradient-text-cyan-purple">Projects</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
-            Practical applications of SQL query optimization, Python data processing, Power BI dashboard design, and system architecture.
+            Practical applications of responsive web development, data processing, and mobile-first system architecture.
           </p>
         </div>
 
@@ -196,7 +196,7 @@ export const Projects: React.FC = () => {
                 {/* Header Badge */}
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-1 rounded bg-[#151821] border border-[#1F2430] font-mono text-cyan-400 text-xs font-bold">
-                    0{project.number}
+                    {project.number}
                   </span>
                   <span className="text-xs text-slate-500 font-mono flex items-center gap-1 group-hover:text-cyan-300 transition-colors">
                     Click for details <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
