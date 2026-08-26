@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart3, PieChart, Shield, ExternalLink, ArrowRight, Layers } from 'lucide-react';
+import { BarChart3, Code2, PieChart, Shield, ExternalLink, ArrowRight, Layers } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
@@ -9,6 +9,53 @@ export const Projects: React.FC = () => {
 
   const getVisualPreview = (type: Project['visualType']) => {
     switch (type) {
+      case 'web_app':
+        return (
+          <div className="p-4 rounded-xl bg-[#08090D] border border-[#1F2430] font-mono text-xs space-y-3">
+            <div className="flex items-center justify-between text-[11px] text-slate-400">
+              <span className="flex items-center gap-1.5 text-cyan-400">
+                <Code2 className="w-3.5 h-3.5" /> Component-driven interface
+              </span>
+              <span className="text-purple-300">React + TypeScript</span>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              {['Hero', 'Projects', 'Contact'].map((section) => (
+                <div key={section} className="rounded bg-[#101218] border border-[#1F2430] px-2 py-3 text-center text-[10px] text-slate-300">
+                  {section}
+                </div>
+              ))}
+            </div>
+            <div className="p-2 rounded bg-[#151821] text-[10px] text-slate-400 flex items-center justify-between">
+              <span>Responsive layouts</span>
+              <span className="text-cyan-300">Reusable components</span>
+            </div>
+          </div>
+        );
+
+      case 'data_platform':
+        return (
+          <div className="p-4 rounded-xl bg-[#08090D] border border-[#1F2430] font-mono text-xs space-y-3">
+            <div className="flex items-center justify-between text-[11px] text-slate-400">
+              <span className="flex items-center gap-1.5 text-purple-400">
+                <PieChart className="w-3.5 h-3.5" /> Customer data workflow
+              </span>
+              <span className="text-cyan-300">Python + SQL</span>
+            </div>
+            <div className="flex items-center gap-2 text-[10px] text-slate-300">
+              {['Raw data', 'RFM scoring', 'Segments'].map((step, index) => (
+                <React.Fragment key={step}>
+                  <span className="flex-1 rounded bg-[#101218] border border-[#1F2430] px-2 py-2 text-center">{step}</span>
+                  {index < 2 && <ArrowRight className="w-3 h-3 shrink-0 text-cyan-400" />}
+                </React.Fragment>
+              ))}
+            </div>
+            <div className="p-2 rounded bg-[#151821] text-[10px] text-slate-400 flex items-center justify-between">
+              <span>Structured summaries</span>
+              <span className="text-purple-300">Actionable groups</span>
+            </div>
+          </div>
+        );
+
       case 'financial_dashboard':
         return (
           <div className="p-4 rounded-xl bg-[#08090D] border border-[#1F2430] font-mono text-xs space-y-3">
