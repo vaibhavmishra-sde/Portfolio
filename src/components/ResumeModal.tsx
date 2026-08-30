@@ -59,7 +59,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 VAIBHAV MISHRA
               </h1>
               <p className="text-sm font-semibold text-cyan-700 mt-0.5">
-                Data Analyst | Business Analytics | Python | SQL | Power BI
+                Software Developer | React | TypeScript | Python | SQL
               </p>
             </div>
 
@@ -85,7 +85,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               Professional Summary
             </h2>
             <p className="text-xs text-slate-700 leading-relaxed">
-              BCA student at Parul University passionate about Data Analytics, Business Intelligence, and building data-driven solutions with Python, SQL, Excel, and Power BI. Focused on extracting actionable business insights from complex datasets.
+              BCA student at Parul University building user-focused web applications and practical software. Developing foundations in React, TypeScript, JavaScript, Python, SQL, Firebase, Git, and collaborative development workflows.
             </p>
           </div>
 
@@ -109,11 +109,10 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               Technical Skills
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-slate-800 font-mono">
-              <div><strong>Programming:</strong> Python, SQL</div>
-              <div><strong>Databases:</strong> MySQL, PostgreSQL, Oracle</div>
-              <div><strong>Analytics:</strong> Power BI, Excel</div>
-              <div><strong>Libraries:</strong> Pandas, NumPy, Matplotlib</div>
-              <div><strong>Tools:</strong> Git, GitHub, VS Code</div>
+              <div><strong>Frontend:</strong> React, TypeScript, JavaScript, HTML, CSS</div>
+              <div><strong>Backend & Data:</strong> Python, SQL, MySQL, PostgreSQL, Firebase</div>
+              <div><strong>Practices:</strong> Git, GitHub, REST APIs, Debugging</div>
+              <div><strong>Tools:</strong> Vite, npm, VS Code, Figma</div>
             </div>
           </div>
 
