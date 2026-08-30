@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { X, Shield, CheckCircle2, Layers } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 import { GithubIcon } from './SocialIcons';
@@ -9,17 +9,31 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!project) return;
+    closeButtonRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [project, onClose]);
+
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#08090D]/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#08090D]/80 backdrop-blur-md animate-in fade-in duration-200" onMouseDown={onClose} role="presentation">
       <div 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-modal-title"
         className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#101218] border border-[#1F2430] p-6 shadow-2xl glass-panel glow-cyan-sm"
-        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
       >
         
         {/* Close Button */}
         <button
+          ref={closeButtonRef}
           onClick={onClose}
           className="absolute top-5 right-5 p-2 rounded-xl bg-[#151821] text-slate-400 hover:text-white border border-[#1F2430] hover:border-cyan-500/40 transition-colors cursor-pointer"
           aria-label="Close project modal"
@@ -41,7 +55,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
         </div>
 
-        <h3 className="text-2xl font-bold text-white mb-4">
+        <h3 id="project-modal-title" className="text-2xl font-bold text-white mb-4">
           {project.name}
         </h3>
 

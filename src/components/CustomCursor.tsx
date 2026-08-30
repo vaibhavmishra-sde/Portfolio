@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const CustomCursor: React.FC = () => {
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const frameRef = useRef<number | null>(null);
 
   useEffect(() => {
     // Check if fine pointer device (desktop)
@@ -15,7 +16,8 @@ export const CustomCursor: React.FC = () => {
     setIsVisible(true);
 
     const onMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      frameRef.current = requestAnimationFrame(() => setPosition({ x: e.clientX, y: e.clientY }));
 
       const target = e.target as HTMLElement;
       const isInteractive = target.closest('button, a, input, textarea, [role="button"], .cursor-pointer');
@@ -23,7 +25,7 @@ export const CustomCursor: React.FC = () => {
     };
 
     window.addEventListener('mousemove', onMouseMove);
-    return () => window.removeEventListener('mousemove', onMouseMove);
+    return () => { window.removeEventListener('mousemove', onMouseMove); if (frameRef.current) cancelAnimationFrame(frameRef.current); };
   }, []);
 
   if (!isVisible) return null;

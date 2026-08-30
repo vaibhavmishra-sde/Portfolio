@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { X, Download, Printer, FileText, Mail, Phone, MapPin } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
@@ -8,6 +8,16 @@ interface ResumeModalProps {
 }
 
 export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    closeButtonRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handlePrint = () => {
@@ -15,23 +25,27 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#08090D]/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#08090D]/85 backdrop-blur-md animate-in fade-in duration-200" onMouseDown={onClose} role="presentation">
       <div 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="resume-modal-title"
         className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#101218] border border-[#1F2430] p-6 sm:p-8 shadow-2xl glass-panel glow-cyan-sm"
-        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
       >
         
         {/* Header Actions */}
         <div className="flex items-center justify-between pb-4 border-b border-[#1F2430] mb-6">
           <div className="flex items-center gap-2">
             <FileText className="w-5 h-5 text-cyan-400" />
-            <h3 className="text-lg font-bold text-white">
+            <h3 id="resume-modal-title" className="text-lg font-bold text-white">
               Vaibhav Mishra — Official Resume
             </h3>
           </div>
 
           <div className="flex items-center gap-2">
             <button
+              ref={closeButtonRef}
               onClick={handlePrint}
               className="px-3 py-1.5 rounded-lg bg-[#151821] hover:bg-cyan-500/10 text-slate-300 hover:text-cyan-300 border border-[#1F2430] text-xs font-mono flex items-center gap-1.5 transition-colors cursor-pointer"
             >
