@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { BarChart3, Code2, PieChart, Shield, ExternalLink, ArrowRight, Layers } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
@@ -186,14 +187,19 @@ export const Projects: React.FC = () => {
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PORTFOLIO_DATA.projects.map((project) => (
-            <div
+            <motion.div
               key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: Number(project.number) * 0.06 }}
+              whileHover={{ y: -6 }}
               onClick={() => setSelectedProject(project)}
               onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedProject(project); } }}
               role="button"
               tabIndex={0}
               aria-label={`View details for ${project.name}`}
-              className="group flex flex-col justify-between rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/40 p-6 glass-panel-hover cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
+              className="interactive-card group flex flex-col justify-between rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/40 p-6 glass-panel-hover cursor-pointer transition-all duration-300"
             >
               <div>
                 
@@ -241,7 +247,7 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
 
-            </div>
+            </motion.div>
           ))}
         </div>
 
