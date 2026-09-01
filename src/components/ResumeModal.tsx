@@ -12,10 +12,15 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
   useEffect(() => {
     if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     closeButtonRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -45,7 +50,6 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
           <div className="flex items-center gap-2">
             <button
-              ref={closeButtonRef}
               onClick={handlePrint}
               className="px-3 py-1.5 rounded-lg bg-[#151821] hover:bg-cyan-500/10 text-slate-300 hover:text-cyan-300 border border-[#1F2430] text-xs font-mono flex items-center gap-1.5 transition-colors cursor-pointer"
             >
@@ -54,6 +58,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             </button>
 
             <button
+              ref={closeButtonRef}
               onClick={onClose}
               className="p-2 rounded-lg bg-[#151821] text-slate-400 hover:text-white border border-[#1F2430] transition-colors cursor-pointer"
               aria-label="Close resume view"
