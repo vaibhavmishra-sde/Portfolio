@@ -33,7 +33,10 @@ export function App() {
     // Scroll spy for active section highlight
     const sections = ['overview', 'about', 'skills', 'pipeline', 'projects', 'opensource', 'certifications', 'journey', 'contact'];
     
+    let animationFrame: number | null = null;
     const handleScroll = () => {
+      if (animationFrame !== null) return;
+      animationFrame = requestAnimationFrame(() => {
       const scrollPos = window.scrollY + 200;
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -42,14 +45,20 @@ export function App() {
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
             setActiveSection(sectionId);
-            break;
+          break;
           }
         }
       }
+      animationFrame = null;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+    };
   }, []);
 
   const scrollToProjects = () => {
