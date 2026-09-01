@@ -13,10 +13,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   useEffect(() => {
     if (!project) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     closeButtonRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
   }, [project, onClose]);
 
   if (!project) return null;
