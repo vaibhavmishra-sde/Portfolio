@@ -4,6 +4,7 @@ import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
 export const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -73,7 +74,7 @@ export const Footer: React.FC = () => {
             Designed & built with curiosity, care, and code.
           </div>
           <div>
-            © 2026 {PORTFOLIO_DATA.personal.name}. All rights reserved.
+            © {currentYear} {PORTFOLIO_DATA.personal.name}. All rights reserved.
           </div>
         </div>
 
