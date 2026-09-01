@@ -11,14 +11,14 @@ export const Contact: React.FC = () => {
   const [senderEmail, setSenderEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(personal.email);
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText(personal.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
-  const copyPhone = () => {
-    navigator.clipboard.writeText(personal.phone);
+  const copyPhone = async () => {
+    await navigator.clipboard.writeText(personal.phone);
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
   };
@@ -71,7 +71,8 @@ export const Contact: React.FC = () => {
               <button
                 onClick={copyEmail}
                 className="p-2.5 rounded-lg bg-[#151821] text-slate-400 hover:text-cyan-300 border border-[#1F2430] hover:border-cyan-500/40 transition-colors cursor-pointer"
-                title="Copy Email"
+                title={copiedEmail ? 'Email copied' : 'Copy email'}
+                aria-label={copiedEmail ? 'Email copied' : 'Copy email address'}
               >
                 {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
               </button>
@@ -94,7 +95,8 @@ export const Contact: React.FC = () => {
               <button
                 onClick={copyPhone}
                 className="p-2.5 rounded-lg bg-[#151821] text-slate-400 hover:text-purple-300 border border-[#1F2430] hover:border-purple-500/40 transition-colors cursor-pointer"
-                title="Copy Phone Number"
+                title={copiedPhone ? 'Phone number copied' : 'Copy phone number'}
+                aria-label={copiedPhone ? 'Phone number copied' : 'Copy phone number'}
               >
                 {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
               </button>
