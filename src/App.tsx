@@ -60,7 +60,8 @@ export function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#08090D] text-[#F5F7FA] selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="relative min-h-screen overflow-hidden bg-[#08090D] text-[#F5F7FA] selection:bg-cyan-500/30 selection:text-cyan-200">
+      <div className="site-background" aria-hidden="true" />
       {/* Glow Rings & Desktop Custom Cursor */}
       <CustomCursor />
 
