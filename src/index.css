@@ -2,6 +2,7 @@
 
 @layer base {
   :root {
+    color-scheme: dark;
     --bg-dark: #08090D;
     --surface-card: #101218;
     --surface-secondary: #151821;
@@ -28,6 +29,11 @@
 
   code, pre, .font-mono {
     font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::selection {
+    background: rgba(6, 182, 212, .28);
+    color: #ecfeff;
   }
 
   :focus-visible {
