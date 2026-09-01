@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -120,6 +120,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-lg bg-[#101218] border border-[#1F2430] text-slate-300 hover:text-white focus:outline-none cursor-pointer"
               aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -136,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
             <span>Open to Developer Internships</span>
           </div>
 
-          <nav className="flex flex-col gap-1">
+          <nav id="mobile-navigation" className="flex flex-col gap-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
