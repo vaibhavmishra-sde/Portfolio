@@ -12,10 +12,12 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
 import { ResumeModal } from './components/ResumeModal';
+import { Preloader } from './components/Preloader';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('overview');
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Handle tab query state on load e.g. /?tab=projects
@@ -69,8 +71,10 @@ export function App() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#08090D] text-[#F5F7FA] selection:bg-cyan-500/30 selection:text-cyan-200">
-      <div className="site-background" aria-hidden="true" />
+    <>
+      {!isLoaded && <Preloader onComplete={() => setIsLoaded(true)} />}
+      <div className={`relative min-h-screen overflow-hidden bg-[#020308] text-[#F5F7FA] selection:bg-cyan-500/30 selection:text-cyan-200 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="site-background" aria-hidden="true" />
       {/* Glow Rings & Desktop Custom Cursor */}
       <CustomCursor />
 
@@ -112,7 +116,8 @@ export function App() {
         isOpen={resumeOpen}
         onClose={() => setResumeOpen(false)}
       />
-    </div>
+      </div>
+    </>
   );
 }
 
