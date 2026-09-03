@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, Target, CheckCircle2, UserCheck, Sparkles } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
@@ -19,7 +20,13 @@ export const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono mb-3">
             <UserCheck className="w-3.5 h-3.5" />
             <span>BACKGROUND & IDENTITY</span>
@@ -30,13 +37,19 @@ export const About: React.FC = () => {
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             Turning curiosity into practical, user-focused software.
           </p>
-        </div>
+        </motion.div>
 
         {/* Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column: Narrative Intro */}
-          <div className="lg:col-span-7 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-7 space-y-6"
+          >
             
             <div className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] glass-panel space-y-4">
               <h3 className="text-xl font-bold text-white flex items-center gap-2">
@@ -68,10 +81,16 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
           {/* Right Column: Quick Facts Card */}
-          <div className="lg:col-span-5">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5"
+          >
             <div className="rounded-2xl bg-gradient-to-b from-[#151821] to-[#101218] border border-[#1F2430] p-6 shadow-xl relative overflow-hidden glow-cyan-sm">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
 
@@ -127,7 +146,7 @@ export const About: React.FC = () => {
 
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Award, CheckCircle2, Clock, ShieldCheck } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
@@ -10,7 +11,13 @@ export const Certifications: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
-        <div className="flex flex-col items-center text-center mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center mb-14"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono mb-3">
             <Award className="w-3.5 h-3.5" />
             <span>VERIFIED QUALIFICATIONS</span>
@@ -21,17 +28,21 @@ export const Certifications: React.FC = () => {
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             Certifications that strengthen my foundations in SQL, analytics, and structured problem solving.
           </p>
-        </div>
+        </motion.div>
 
         {/* Certification Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {certifications.map((cert) => {
+          {certifications.map((cert, index) => {
             const isCompleted = cert.status === 'Completed';
 
             return (
-              <div
+              <motion.div
                 key={cert.title}
-                className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/40 glass-panel-hover flex flex-col justify-between space-y-4"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/40 glass-panel-hover hover-lift flex flex-col justify-between space-y-4"
               >
                 <div>
                   
@@ -68,7 +79,7 @@ export const Certifications: React.FC = () => {
                   <span className="text-slate-400">Official Status</span>
                 </div>
 
-              </div>
+              </motion.div>
             );
           })}
         </div>

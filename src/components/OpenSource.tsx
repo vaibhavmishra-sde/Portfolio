@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { GitPullRequest, GitBranch, Award } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon } from './SocialIcons';
@@ -29,7 +30,13 @@ export const OpenSource: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
-        <div className="flex flex-col items-center text-center mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center mb-14"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono mb-3">
             <GitPullRequest className="w-3.5 h-3.5" />
             <span>COMMUNITY & COLLABORATION</span>
@@ -40,13 +47,19 @@ export const OpenSource: React.FC = () => {
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             Active participant in open-source ecosystems, collaborative version control with Git/GitHub, and community development.
           </p>
-        </div>
+        </motion.div>
 
         {/* Highlight Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           
           {/* Card 1: GSSoC 2026 */}
-          <div className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/40 glass-panel-hover space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/40 glass-panel-hover hover-lift space-y-4"
+          >
             <div className="flex items-center justify-between">
               <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
                 <Award className="w-6 h-6" />
@@ -73,10 +86,16 @@ export const OpenSource: React.FC = () => {
               <span className="px-2.5 py-1 rounded bg-[#151821] border border-[#1F2430] text-slate-300">Issue Triage</span>
               <span className="px-2.5 py-1 rounded bg-[#151821] border border-[#1F2430] text-slate-300">Pull Requests</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2: OpenSource Connect India (OSCI) */}
-          <div className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-purple-500/40 glass-panel-hover space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-purple-500/40 glass-panel-hover hover-lift space-y-4"
+          >
             <div className="flex items-center justify-between">
               <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400">
                 <GitBranch className="w-6 h-6" />
@@ -102,12 +121,18 @@ export const OpenSource: React.FC = () => {
               <span className="px-2.5 py-1 rounded bg-[#151821] border border-[#1F2430] text-slate-300">Open Source India</span>
               <span className="px-2.5 py-1 rounded bg-[#151821] border border-[#1F2430] text-slate-300">Collaborative Dev</span>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
         {/* GitHub Activity Heatmap Panel Visualizer */}
-        <div className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] glass-panel glow-cyan-sm space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="p-6 rounded-2xl bg-[#101218] border border-[#1F2430] glass-panel glow-cyan-sm space-y-4 hover-lift"
+        >
           <div className="flex items-center justify-between pb-4 border-b border-[#1F2430]">
             <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
               <GithubIcon className="w-4 h-4 text-cyan-400" />
@@ -152,7 +177,7 @@ export const OpenSource: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
