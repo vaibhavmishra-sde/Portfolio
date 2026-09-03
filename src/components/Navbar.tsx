@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'py-3 bg-[#08090D]/85 backdrop-blur-xl border-b border-[#1F2430]/60 shadow-xl' 
+        ? 'py-3 premium-glass' 
         : 'py-5 bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,13 +76,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 cursor-pointer ${
+                  className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-300 cursor-pointer overflow-hidden ${
                     isActive 
-                      ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 shadow-[0_0_10px_rgba(0,240,255,0.15)]' 
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                      ? 'text-cyan-200 shadow-[0_0_15px_rgba(0,240,255,0.25)]' 
+                      : 'text-slate-400 hover:text-white hover:bg-white/10'
                   }`}
                 >
-                  {item.label}
+                  {isActive && (
+                    <span className="absolute inset-0 bg-cyan-500/20 border border-cyan-400/50 rounded-full animate-pulse-glow"></span>
+                  )}
+                  <span className="relative z-10">{item.label}</span>
                 </button>
               );
             })}
