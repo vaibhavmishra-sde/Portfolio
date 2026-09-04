@@ -76,6 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
+                  aria-current={isActive ? 'page' : undefined}
                   className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-300 cursor-pointer overflow-hidden ${
                     isActive 
                       ? 'text-cyan-200 shadow-[0_0_15px_rgba(0,240,255,0.25)]' 
@@ -146,6 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
+                aria-current={activeSection === item.id ? 'page' : undefined}
                 className={`text-left px-4 py-2.5 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
                   activeSection === item.id 
                     ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30' 
