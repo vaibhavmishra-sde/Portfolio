@@ -11,14 +11,29 @@ export const Contact: React.FC = () => {
   const [senderEmail, setSenderEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const copyToClipboard = async (value: string) => {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(value);
+      return;
+    }
+    const helper = document.createElement('textarea');
+    helper.value = value;
+    helper.style.position = 'fixed';
+    helper.style.opacity = '0';
+    document.body.appendChild(helper);
+    helper.select();
+    document.execCommand('copy');
+    helper.remove();
+  };
+
   const copyEmail = async () => {
-    await navigator.clipboard.writeText(personal.email);
+    await copyToClipboard(personal.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
   const copyPhone = async () => {
-    await navigator.clipboard.writeText(personal.phone);
+    await copyToClipboard(personal.phone);
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
   };
