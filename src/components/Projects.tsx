@@ -197,6 +197,7 @@ export const Projects: React.FC = () => {
               onClick={() => setSelectedProject(project)}
               onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedProject(project); } }}
               role="button"
+              aria-haspopup="dialog"
               tabIndex={0}
               aria-label={`View details for ${project.name}`}
               className="interactive-card group flex flex-col justify-between rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/40 p-6 glass-panel hover-lift cursor-pointer transition-all duration-300"
