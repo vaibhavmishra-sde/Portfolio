@@ -58,6 +58,7 @@ export const Footer: React.FC = () => {
 
           {/* Back to Top */}
           <button
+            type="button"
             onClick={scrollToTop}
             className="p-3 rounded-xl bg-[#101218] hover:bg-cyan-500/10 border border-[#1F2430] hover:border-cyan-500/40 text-slate-400 hover:text-cyan-300 transition-colors flex items-center gap-2 text-xs font-mono cursor-pointer"
             aria-label="Back to top"
