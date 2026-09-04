@@ -32,6 +32,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-modal-title"
+        aria-describedby="project-modal-description"
         className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#101218] border border-[#1F2430] p-6 shadow-2xl glass-panel glow-cyan-sm"
         onMouseDown={(e) => e.stopPropagation()}
       >
@@ -65,7 +66,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </h3>
 
         {/* Project Description */}
-        <p className="text-slate-300 text-sm leading-relaxed mb-6">
+        <p id="project-modal-description" className="text-slate-300 text-sm leading-relaxed mb-6">
           {project.description}
         </p>
 
