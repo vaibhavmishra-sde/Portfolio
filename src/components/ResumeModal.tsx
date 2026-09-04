@@ -35,6 +35,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         role="dialog"
         aria-modal="true"
         aria-labelledby="resume-modal-title"
+        aria-describedby="resume-modal-summary"
         className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#101218] border border-[#1F2430] p-6 sm:p-8 shadow-2xl glass-panel glow-cyan-sm"
         onMouseDown={(e) => e.stopPropagation()}
       >
@@ -103,7 +104,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <h2 className="text-xs font-bold uppercase tracking-wider text-cyan-800 border-b border-cyan-800/30 pb-1 mb-2 font-mono">
               Professional Summary
             </h2>
-            <p className="text-xs text-slate-700 leading-relaxed">
+            <p id="resume-modal-summary" className="text-xs text-slate-700 leading-relaxed">
               BCA student at Parul University building user-focused web applications and practical software. Developing foundations in React, TypeScript, JavaScript, Python, SQL, Firebase, Git, and collaborative development workflows.
             </p>
           </div>
