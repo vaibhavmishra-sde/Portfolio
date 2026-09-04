@@ -48,6 +48,7 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-[#08090D] relative border-t border-[#1F2430]/60 grid-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="sr-only" aria-live="polite">{copiedEmail ? 'Email address copied.' : copiedPhone ? 'Phone number copied.' : ''}</p>
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
