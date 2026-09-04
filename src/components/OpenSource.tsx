@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GitPullRequest, GitBranch, Award } from 'lucide-react';
+import { GitPullRequest, GitBranch, Award, SearchCheck, GitCommitHorizontal, CheckCircle2 } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon } from './SocialIcons';
 
@@ -24,6 +24,12 @@ export const OpenSource: React.FC = () => {
       default: return 'bg-[#151821] border-[#1F2430]';
     }
   };
+
+  const contributionWorkflow = [
+    { icon: SearchCheck, title: 'Explore & understand', description: 'Read project guidelines, reproduce issues, and find a focused place to help.' },
+    { icon: GitCommitHorizontal, title: 'Build with care', description: 'Create clear, scoped changes with readable commits and documentation where useful.' },
+    { icon: CheckCircle2, title: 'Collaborate & improve', description: 'Respond to review, refine the solution, and learn from the maintainer community.' },
+  ];
 
   return (
     <section id="opensource" className="py-20 bg-[#08090D] relative border-t border-[#1F2430]/60">
@@ -125,6 +131,36 @@ export const OpenSource: React.FC = () => {
 
         </div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mb-12"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5">
+            <div>
+              <p className="text-xs font-mono uppercase tracking-wider text-emerald-300">Contribution approach</p>
+              <h3 className="mt-1 text-xl font-bold text-white">A practical, review-friendly workflow.</h3>
+            </div>
+            <a href={PORTFOLIO_DATA.personal.github} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-cyan-400 hover:text-cyan-200 transition-colors">
+              Follow my work on GitHub →
+            </a>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {contributionWorkflow.map(({ icon: Icon, title, description }, index) => (
+              <div key={title} className="relative p-5 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-emerald-500/40 transition-colors">
+                <span className="absolute top-4 right-4 text-xs font-mono text-slate-600">0{index + 1}</span>
+                <div className="mb-4 w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-emerald-400" />
+                </div>
+                <h4 className="font-semibold text-white">{title}</h4>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">{description}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* GitHub Activity Heatmap Panel Visualizer */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -136,7 +172,7 @@ export const OpenSource: React.FC = () => {
           <div className="flex items-center justify-between pb-4 border-b border-[#1F2430]">
             <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
               <GithubIcon className="w-4 h-4 text-cyan-400" />
-              <span>GITHUB ACTIVITY HEATMAP (Simulated UI)</span>
+              <span>COLLABORATION RHYTHM (ILLUSTRATIVE)</span>
             </div>
             <a
               href={PORTFOLIO_DATA.personal.github}
@@ -153,11 +189,15 @@ export const OpenSource: React.FC = () => {
             <div className="text-[11px] font-mono text-slate-400">Activity Overview</div>
             <div className="grid grid-cols-13 sm:grid-cols-26 md:grid-cols-52 gap-1.5 py-2">
               {heatmapBlocks.map((block) => (
-                <div
+                <button
+                  type="button"
                   key={block.id}
                   onMouseEnter={() => setHoveredBlock(block.id)}
                   onMouseLeave={() => setHoveredBlock(null)}
-                  className={`h-4 rounded-sm border transition-all duration-200 cursor-pointer ${getIntensityColor(block.level)} ${
+                  onFocus={() => setHoveredBlock(block.id)}
+                  onBlur={() => setHoveredBlock(null)}
+                  aria-label={block.label}
+                  className={`h-4 rounded-sm border transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-300/70 ${getIntensityColor(block.level)} ${
                     hoveredBlock === block.id ? 'scale-125 z-10' : ''
                   }`}
                   title={block.label}

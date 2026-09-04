@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
     { id: 'skills', label: 'Skills' },
     { id: 'pipeline', label: 'Workflow' },
     { id: 'projects', label: 'Projects' },
-    { id: 'opensource', label: 'Open Source' },
+    { id: 'opensource', label: 'Contributions' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' },
   ];
