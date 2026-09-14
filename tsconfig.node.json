@@ -6,6 +6,7 @@
     "types": ["node"],
     "skipLibCheck": true,
 
+    
     /* Bundler mode */
     "module": "nodenext",
     "allowImportingTsExtensions": true,
@@ -13,6 +14,7 @@
     "moduleDetection": "force",
     "noEmit": true,
 
+    
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -21,3 +23,4 @@
   },
   "include": ["vite.config.ts"]
 }
+
