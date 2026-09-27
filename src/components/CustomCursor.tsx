@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 export const CustomCursor: React.FC = () => {
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible] = useState(() => typeof window !== 'undefined' && !window.matchMedia('(pointer: coarse)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   const frameRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -12,8 +12,6 @@ export const CustomCursor: React.FC = () => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (isTouchDevice || reducedMotion) return;
-
-    setIsVisible(true);
 
     const onMouseMove = (e: MouseEvent) => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { StatsBar } from './components/StatsBar';
 import { About } from './components/About';
+import { Services } from './components/Services';
 import { Skills } from './components/Skills';
 import { DataPipeline } from './components/DataPipeline';
 import { Projects } from './components/Projects';
@@ -11,6 +13,7 @@ import { Journey } from './components/Journey';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
+import { FloatingParticles } from './components/FloatingParticles';
 import { ResumeModal } from './components/ResumeModal';
 import { Preloader } from './components/Preloader';
 
@@ -33,7 +36,7 @@ export function App() {
     }
 
     // Scroll spy for active section highlight
-    const sections = ['overview', 'about', 'skills', 'pipeline', 'projects', 'opensource', 'certifications', 'journey', 'contact'];
+    const sections = ['overview', 'about', 'services', 'skills', 'pipeline', 'projects', 'opensource', 'certifications', 'journey', 'contact'];
     
     let animationFrame: number | null = null;
     const handleScroll = () => {
@@ -75,6 +78,8 @@ export function App() {
       {!isLoaded && <Preloader onComplete={() => setIsLoaded(true)} />}
       <div className={`relative min-h-screen overflow-hidden bg-[#020308] text-[#F5F7FA] selection:bg-cyan-500/30 selection:text-cyan-200 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="site-background" aria-hidden="true" />
+        <FloatingParticles />
+
       {/* Glow Rings & Desktop Custom Cursor */}
       <CustomCursor />
 
@@ -91,7 +96,11 @@ export function App() {
           onScrollToProjects={scrollToProjects}
         />
 
+        <StatsBar />
+
         <About />
+
+        <Services />
 
         <Skills />
 

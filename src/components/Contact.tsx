@@ -10,6 +10,7 @@ export const Contact: React.FC = () => {
   const [name, setName] = useState('');
   const [senderEmail, setSenderEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [submitState, setSubmitState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const copyToClipboard = async (value: string) => {
     if (navigator.clipboard?.writeText) {
@@ -38,17 +39,37 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopiedPhone(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = `Portfolio enquiry from ${name.trim()}`;
-    const body = `Name: ${name.trim()}\nEmail: ${senderEmail.trim()}\n\n${message.trim()}`;
-    window.location.href = `mailto:${personal.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitState('sending');
+
+    const formData = new URLSearchParams({
+      'form-name': 'portfolio-contact',
+      name: name.trim(),
+      email: senderEmail.trim(),
+      message: message.trim(),
+    });
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
+      });
+      if (!response.ok) throw new Error('Contact form submission failed');
+      setSubmitState('success');
+      setName('');
+      setSenderEmail('');
+      setMessage('');
+    } catch {
+      setSubmitState('error');
+    }
   };
 
   return (
     <section id="contact" className="py-20 bg-[#08090D] relative border-t border-[#1F2430]/60 grid-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="sr-only" aria-live="polite">{copiedEmail ? 'Email address copied.' : copiedPhone ? 'Phone number copied.' : ''}</p>
+        <p className="sr-only" aria-live="polite">{copiedEmail ? 'Email address copied.' : copiedPhone ? 'Phone number copied.' : submitState === 'success' ? 'Message sent successfully.' : submitState === 'error' ? 'Message could not be sent.' : ''}</p>
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
@@ -159,16 +180,17 @@ export const Contact: React.FC = () => {
                 Send a Quick Message
               </h3>
               <p className="text-xs text-slate-400 mb-6">
-                Fill this in to open a pre-filled email draft in your default mail app.
+                Your message is delivered securely through the portfolio contact form.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form name="portfolio-contact" data-netlify="true" onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-xs font-mono text-slate-400 mb-1">
                     Your Name / Organization
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -183,6 +205,7 @@ export const Contact: React.FC = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     value={senderEmail}
                     onChange={(e) => setSenderEmail(e.target.value)}
@@ -196,6 +219,7 @@ export const Contact: React.FC = () => {
                     Message / Opportunity Details
                   </label>
                   <textarea
+                    name="message"
                     required
                     rows={4}
                     value={message}
@@ -205,12 +229,16 @@ export const Contact: React.FC = () => {
                   />
                 </div>
 
+                {submitState === 'success' && <p className="text-sm text-emerald-300" role="status">Thanks, your message has been sent.</p>}
+                {submitState === 'error' && <p className="text-sm text-rose-300" role="alert">The form could not submit. Please email me directly instead.</p>}
+
                 <button
                   type="submit"
+                  disabled={submitState === 'sending'}
                   className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-[#08090D] font-bold text-sm flex items-center justify-center gap-2 transition-all glow-cyan-sm cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Open Email Draft</span>
+                  <span>{submitState === 'sending' ? 'Sending...' : 'Send Message'}</span>
                 </button>
               </form>
 
