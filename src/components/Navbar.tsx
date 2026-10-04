@@ -30,6 +30,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [mobileMenuOpen]);
+
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
@@ -103,6 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
             {/* Resume Button */}
             <button
               onClick={onOpenResume}
+              aria-label="Open resume"
               className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-200 bg-[#151821] hover:bg-cyan-500/10 hover:text-cyan-300 border border-[#1F2430] hover:border-cyan-500/40 rounded-lg transition-all duration-200 focus:outline-none cursor-pointer"
             >
               <FileText className="w-3.5 h-3.5 text-cyan-400" />
