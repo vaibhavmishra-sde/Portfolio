@@ -118,6 +118,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onScrollToProjects }) 
             <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
             <span className="text-[10px] font-mono text-emerald-300">Ready to contribute to your engineering team</span>
           </div>
+
+          <div className="grid grid-cols-3 gap-2 mt-3 text-center">
+            {[['01', 'Think in systems'], ['02', 'Ship in slices'], ['03', 'Improve always']].map(([index, label]) => (
+              <div key={index} className="rounded-lg border border-[#1a1e2b] bg-[#080a10] px-2 py-2">
+                <span className="block text-[10px] font-mono text-cyan-400">{index}</span>
+                <span className="mt-1 block text-[9px] leading-tight text-slate-500">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>
