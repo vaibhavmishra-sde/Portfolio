@@ -23,13 +23,14 @@ export function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    let tabScrollTimer: number | undefined;
     // Handle tab query state on load e.g. /?tab=projects
     const urlParams = new URLSearchParams(window.location.search);
     const tabParam = urlParams.get('tab');
     if (tabParam) {
       const el = document.getElementById(tabParam);
       if (el) {
-        setTimeout(() => {
+        tabScrollTimer = window.setTimeout(() => {
           el.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       }
@@ -62,6 +63,7 @@ export function App() {
     handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (tabScrollTimer !== undefined) window.clearTimeout(tabScrollTimer);
       if (animationFrame !== null) cancelAnimationFrame(animationFrame);
     };
   }, []);
