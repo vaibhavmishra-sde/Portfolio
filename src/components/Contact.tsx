@@ -185,10 +185,11 @@ export const Contact: React.FC = () => {
 
               <form name="portfolio-contact" data-netlify="true" onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-400 mb-1">
+                  <label htmlFor="contact-name" className="block text-xs font-mono text-slate-400 mb-1">
                     Your Name / Organization
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     name="name"
                     required
@@ -200,10 +201,11 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-400 mb-1">
+                  <label htmlFor="contact-email" className="block text-xs font-mono text-slate-400 mb-1">
                     Your Email Address
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     name="email"
                     required
@@ -215,10 +217,11 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-400 mb-1">
+                  <label htmlFor="contact-message" className="block text-xs font-mono text-slate-400 mb-1">
                     Message / Opportunity Details
                   </label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     required
                     rows={4}
