@@ -13,7 +13,15 @@ export const DataPipeline: React.FC = () => {
   const [stage, setStage] = useState<Stage>('plan');
   const [copied, setCopied] = useState(false);
   const item = content[stage];
-  const copy = async () => { await navigator.clipboard.writeText(item.code); setCopied(true); window.setTimeout(() => setCopied(false), 1800); };
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(item.code);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+    }
+  };
   const icons: Record<Stage, React.ReactNode> = { plan: <Terminal className="w-4 h-4" />, build: <Code2 className="w-4 h-4" />, improve: <GitBranch className="w-4 h-4" /> };
   return <section id="pipeline" className="py-20 bg-[#08090D] relative border-t border-[#1F2430]/60 grid-background">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
