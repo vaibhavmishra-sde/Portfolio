@@ -10,9 +10,11 @@ interface ProjectModalProps {
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!project) return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     closeButtonRef.current?.focus();
@@ -20,6 +22,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     window.addEventListener('keydown', onKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
+      previouslyFocusedRef.current?.focus();
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [project, onClose]);
