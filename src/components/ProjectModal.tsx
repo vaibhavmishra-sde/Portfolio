@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { X, Shield, CheckCircle2, Layers } from 'lucide-react';
+import { X, Shield, CheckCircle2, Layers, ExternalLink } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 import { GithubIcon } from './SocialIcons';
 
@@ -165,17 +165,30 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Footer CTAs */}
         <div className="flex items-center justify-between pt-4 border-t border-[#1F2430]">
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-semibold font-mono flex items-center gap-2 transition-colors"
-            >
-              <GithubIcon className="w-4 h-4" />
-              <span>View Repository on GitHub</span>
-            </a>
-          )}
+          <div className="flex flex-wrap gap-2">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-semibold font-mono flex items-center gap-2 transition-colors"
+              >
+                <GithubIcon className="w-4 h-4" />
+                <span>View Repository</span>
+              </a>
+            )}
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-semibold font-mono flex items-center gap-2 transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>Open Live Demo</span>
+              </a>
+            )}
+          </div>
 
           <button
             onClick={onClose}
