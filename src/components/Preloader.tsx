@@ -9,6 +9,7 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
   useEffect(() => {
     // Typing effect for the text
     let i = 0;
+    let exitTimer: number | undefined;
     const typingInterval = setInterval(() => {
       if (i <= fullText.length) {
         setLoadingText(fullText.slice(0, i));
@@ -20,11 +21,12 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
 
     const timer = setTimeout(() => {
       setIsVisible(false);
-      setTimeout(onComplete, 1000); // Wait for exit animation
+      exitTimer = window.setTimeout(onComplete, 1000); // Wait for exit animation
     }, 2500);
 
     return () => {
       clearTimeout(timer);
+      if (exitTimer !== undefined) window.clearTimeout(exitTimer);
       clearInterval(typingInterval);
     };
   }, [onComplete]);
