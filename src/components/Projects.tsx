@@ -141,7 +141,7 @@ export const Projects: React.FC = () => {
           <div className="p-4 rounded-xl bg-[#08090D] border border-[#1F2430] font-mono text-xs space-y-3">
             <div className="flex items-center justify-between text-[11px] text-slate-400">
               <span className="flex items-center gap-1.5 text-emerald-400">
-                <Shield className="w-3.5 h-3.5" /> AI Safety Architecture
+                <Shield className="w-3.5 h-3.5" /> Child Safety Architecture
               </span>
               <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[9px]">Concept UI</span>
             </div>
