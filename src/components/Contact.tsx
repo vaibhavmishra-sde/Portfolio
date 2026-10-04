@@ -28,15 +28,23 @@ export const Contact: React.FC = () => {
   };
 
   const copyEmail = async () => {
-    await copyToClipboard(personal.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
+    try {
+      await copyToClipboard(personal.email);
+      setCopiedEmail(true);
+      window.setTimeout(() => setCopiedEmail(false), 2000);
+    } catch {
+      setCopiedEmail(false);
+    }
   };
 
   const copyPhone = async () => {
-    await copyToClipboard(personal.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
+    try {
+      await copyToClipboard(personal.phone);
+      setCopiedPhone(true);
+      window.setTimeout(() => setCopiedPhone(false), 2000);
+    } catch {
+      setCopiedPhone(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
