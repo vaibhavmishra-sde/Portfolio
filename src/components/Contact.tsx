@@ -66,6 +66,11 @@ export const Contact: React.FC = () => {
     }
   };
 
+  const handleFieldChange = (setter: (value: string) => void, value: string) => {
+    setter(value);
+    if (submitState !== 'idle') setSubmitState('idle');
+  };
+
   return (
     <section id="contact" className="py-20 bg-[#08090D] relative border-t border-[#1F2430]/60 grid-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -194,7 +199,7 @@ export const Contact: React.FC = () => {
                     name="name"
                     required
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => handleFieldChange(setName, e.target.value)}
                     placeholder="e.g. Engineering Recruiter / Hiring Manager"
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
@@ -210,7 +215,7 @@ export const Contact: React.FC = () => {
                     name="email"
                     required
                     value={senderEmail}
-                    onChange={(e) => setSenderEmail(e.target.value)}
+                    onChange={(e) => handleFieldChange(setSenderEmail, e.target.value)}
                     placeholder="recruiter@company.com"
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
@@ -226,7 +231,7 @@ export const Contact: React.FC = () => {
                     required
                     rows={4}
                     value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e) => handleFieldChange(setMessage, e.target.value)}
                     placeholder="Hi Vaibhav, we reviewed your portfolio and would like to discuss a software developer opportunity..."
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors resize-none"
                   />
@@ -238,7 +243,7 @@ export const Contact: React.FC = () => {
                 <button
                   type="submit"
                   disabled={submitState === 'sending'}
-                  className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-[#08090D] font-bold text-sm flex items-center justify-center gap-2 transition-all glow-cyan-sm cursor-pointer"
+                  className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-60 disabled:cursor-not-allowed text-[#08090D] font-bold text-sm flex items-center justify-center gap-2 transition-all glow-cyan-sm cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>{submitState === 'sending' ? 'Sending...' : 'Send Message'}</span>
