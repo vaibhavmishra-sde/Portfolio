@@ -94,7 +94,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <ul className="space-y-1.5 text-xs text-slate-300">
               {project.outcomes.map((outcome, idx) => (
                 <li key={idx} className="flex items-start gap-2">
-                  <span className="text-cyan-400 font-bold">•</span>
+                  <span className="text-cyan-400 font-bold" aria-hidden="true">•</span>
                   <span>{outcome}</span>
                 </li>
               ))}
