@@ -86,6 +86,46 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
+/* Quick facts: a compact editorial layout that stays readable on small screens. */
+.quick-facts-card {
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .28), 0 0 28px rgba(0, 240, 255, .06);
+}
+
+.quick-fact-row {
+  display: grid;
+  grid-template-columns: minmax(105px, .72fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.8rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid rgba(31, 36, 48, .7);
+}
+
+.quick-fact-label {
+  color: #94a3b8;
+  font: 500 .68rem/1.35 'JetBrains Mono', monospace;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+.quick-fact-value {
+  min-width: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 420px) {
+  .quick-fact-row {
+    grid-template-columns: 1fr;
+    gap: .35rem;
+    align-items: start;
+  }
+
+  .quick-fact-value {
+    text-align: left;
+  }
+}
+
 .glass-panel-hover {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }

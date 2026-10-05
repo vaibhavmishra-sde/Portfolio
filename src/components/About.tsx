@@ -91,57 +91,58 @@ export const About: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-5"
           >
-            <div className="rounded-2xl bg-gradient-to-b from-[#151821] to-[#101218] border border-[#1F2430] p-6 shadow-xl relative overflow-hidden glow-cyan-sm">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="quick-facts-card rounded-2xl bg-gradient-to-b from-[#151821] to-[#101218] border border-[#1F2430] p-6 sm:p-7 shadow-xl relative overflow-hidden glow-cyan-sm">
+              <div className="absolute -top-16 -right-12 w-44 h-44 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-28 h-28 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#1F2430]">
+              <div className="flex items-center justify-between gap-3 pb-5 mb-2 border-b border-[#1F2430]">
                 <h4 className="text-base font-bold text-white flex items-center gap-2">
                   <GraduationCap className="w-5 h-5 text-cyan-400" />
                   Quick Facts
                 </h4>
-                <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono">
+                <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono whitespace-nowrap">
                   Verified Details
                 </span>
               </div>
 
-              <div className="space-y-4 font-sans text-sm">
+              <div className="space-y-0 font-sans text-sm">
                 
-                <div className="flex items-start justify-between pb-3 border-b border-[#1F2430]/60">
-                  <span className="text-slate-400 text-xs uppercase font-mono">Education</span>
-                  <span className="text-white font-semibold text-right">{quickFacts.education}</span>
+                <div className="quick-fact-row">
+                  <span className="quick-fact-label">Education</span>
+                  <span className="quick-fact-value text-white font-semibold">{quickFacts.education}</span>
                 </div>
 
-                <div className="flex items-start justify-between pb-3 border-b border-[#1F2430]/60">
-                  <span className="text-slate-400 text-xs uppercase font-mono">Duration</span>
-                  <span className="text-cyan-300 font-mono">{quickFacts.duration}</span>
+                <div className="quick-fact-row">
+                  <span className="quick-fact-label">Duration</span>
+                  <span className="quick-fact-value text-cyan-300 font-mono">{quickFacts.duration}</span>
                 </div>
 
-                <div className="flex items-start justify-between pb-3 border-b border-[#1F2430]/60">
-                  <span className="text-slate-400 text-xs uppercase font-mono">Academic CGPA</span>
-                  <span className="px-2 py-0.5 rounded bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-bold font-mono">
+                <div className="quick-fact-row">
+                  <span className="quick-fact-label">Academic CGPA</span>
+                  <span className="quick-fact-value inline-flex justify-end"><span className="px-2 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-bold font-mono">
                     {quickFacts.cgpa}
-                  </span>
+                  </span></span>
                 </div>
 
-                <div className="flex items-start justify-between pb-3 border-b border-[#1F2430]/60">
-                  <span className="text-slate-400 text-xs uppercase font-mono">Focus Area</span>
-                  <span className="text-purple-300 font-medium text-right">{quickFacts.focus}</span>
+                <div className="quick-fact-row">
+                  <span className="quick-fact-label">Focus Area</span>
+                  <span className="quick-fact-value text-purple-300 font-medium">{quickFacts.focus}</span>
                 </div>
 
-                <div className="flex items-start justify-between pb-3 border-b border-[#1F2430]/60">
-                  <span className="text-slate-400 text-xs uppercase font-mono flex items-center gap-1">
+                <div className="quick-fact-row">
+                  <span className="quick-fact-label flex items-center gap-1">
                     <MapPin className="w-3 h-3 text-rose-400" /> Location
                   </span>
-                  <span className="text-slate-200">{quickFacts.location}</span>
+                  <span className="quick-fact-value text-slate-200">{quickFacts.location}</span>
                 </div>
 
-                <div className="flex items-start justify-between pt-1">
-                  <span className="text-slate-400 text-xs uppercase font-mono flex items-center gap-1">
+                <div className="quick-fact-row last:border-b-0">
+                  <span className="quick-fact-label flex items-center gap-1">
                     <Target className="w-3 h-3 text-emerald-400" /> Target Role
                   </span>
-                  <span className="text-emerald-400 font-semibold font-mono text-xs bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
+                  <span className="quick-fact-value"><span className="inline-block text-emerald-400 font-semibold font-mono text-xs bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/30">
                     {quickFacts.currentGoal}
-                  </span>
+                  </span></span>
                 </div>
 
               </div>
