@@ -32,11 +32,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
+    document.body.style.overflow = 'hidden';
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setMobileMenuOpen(false);
     };
     window.addEventListener('keydown', closeOnEscape);
-    return () => window.removeEventListener('keydown', closeOnEscape);
+    return () => {
+      window.removeEventListener('keydown', closeOnEscape);
+      document.body.style.overflow = '';
+    };
   }, [mobileMenuOpen]);
 
   const scrollToSection = (id: string) => {

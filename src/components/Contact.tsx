@@ -10,6 +10,7 @@ export const Contact: React.FC = () => {
   const [name, setName] = useState('');
   const [senderEmail, setSenderEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [website, setWebsite] = useState('');
   const [submitState, setSubmitState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const copyToClipboard = async (value: string) => {
@@ -49,6 +50,7 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (website.trim()) return;
     setSubmitState('sending');
 
     const formData = new URLSearchParams({
@@ -109,6 +111,10 @@ export const Contact: React.FC = () => {
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
                   <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <label htmlFor="contact-website" className="sr-only">Leave this field empty</label>
+                  <input id="contact-website" type="text" name="bot-field" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                 </div>
                 <div>
                   <div className="text-xs font-mono text-slate-400">Direct Email</div>

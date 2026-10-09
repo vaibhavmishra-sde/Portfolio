@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BarChart3, Code2, PieChart, Shield, ExternalLink, ArrowRight, Layers } from 'lucide-react';
+import { BarChart3, Code2, PieChart, Shield, ExternalLink, ArrowRight, Layers, Filter } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 
 export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [filter, setFilter] = useState<'all' | 'web' | 'data' | 'mobile'>('all');
+  const visibleProjects = PORTFOLIO_DATA.projects.filter((project) => {
+    if (filter === 'all') return true;
+    if (filter === 'web') return project.visualType === 'web_app';
+    if (filter === 'mobile') return project.visualType === 'bal_kavach';
+    return ['data_platform', 'financial_dashboard', 'customer_segmentation'].includes(project.visualType);
+  });
 
   const getVisualPreview = (type: Project['visualType']) => {
     switch (type) {
@@ -185,8 +192,17 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Project Cards Grid */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8" role="group" aria-label="Filter projects">
+          <Filter className="w-4 h-4 text-cyan-400 self-center mr-1" aria-hidden="true" />
+          {[['all', 'All'], ['web', 'Web'], ['data', 'Data'], ['mobile', 'Mobile']].map(([value, label]) => (
+            <button key={value} type="button" onClick={() => setFilter(value as typeof filter)} aria-pressed={filter === value}
+              className={`px-4 py-2 rounded-full text-xs font-semibold border transition-colors ${filter === value ? 'bg-cyan-500/20 border-cyan-400/60 text-cyan-200' : 'bg-[#101218] border-[#1F2430] text-slate-400 hover:text-white'}`}>
+              {label}
+            </button>
+          ))}
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PORTFOLIO_DATA.projects.map((project) => (
+          {visibleProjects.map((project) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}

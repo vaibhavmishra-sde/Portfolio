@@ -21,6 +21,7 @@ export function App() {
   const [activeSection, setActiveSection] = useState('overview');
   const [resumeOpen, setResumeOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     let tabScrollTimer: number | undefined;
@@ -44,6 +45,8 @@ export function App() {
       if (animationFrame !== null) return;
       animationFrame = requestAnimationFrame(() => {
       const scrollPos = window.scrollY + 200;
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(scrollableHeight > 0 ? Math.min(100, (window.scrollY / scrollableHeight) * 100) : 0);
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -79,6 +82,10 @@ export function App() {
     <>
       {!isLoaded && <Preloader onComplete={() => setIsLoaded(true)} />}
       <div className={`relative min-h-screen overflow-hidden bg-[#020308] text-[#F5F7FA] selection:bg-cyan-500/30 selection:text-cyan-200 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-transparent" aria-hidden="true">
+          <div className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-[width] duration-150" style={{ width: `${scrollProgress}%` }} />
+        </div>
         <div className="site-background" aria-hidden="true" />
         <FloatingParticles />
 
@@ -92,7 +99,7 @@ export function App() {
       />
 
       {/* Main Content Sections */}
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero
           onOpenResume={() => setResumeOpen(true)}
           onScrollToProjects={scrollToProjects}
