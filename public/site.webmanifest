@@ -1,0 +1,14 @@
+{
+  "name": "Vaibhav Mishra — Software Engineer",
+  "short_name": "Vaibhav Mishra",
+  "description": "Software engineering portfolio of Vaibhav Mishra.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020308",
+  "theme_color": "#020308",
+  "icons": [{
+    "src": "/favicon.svg",
+    "sizes": "any",
+    "type": "image/svg+xml"
+  }]
+}
