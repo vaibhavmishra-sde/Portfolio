@@ -77,3 +77,21 @@ npm run build
 ---
 
 > Designed & built with curiosity, data, and code. © 2026 Vaibhav Mishra
+## Portfolio notes
+
+This is a component-driven React and TypeScript portfolio. Content lives in
+`src/data/portfolioData.ts`, while sections in `src/components/` stay focused
+on presentation and interaction. This keeps copy changes separate from UI
+logic and makes new projects straightforward to add.
+
+### Local workflow
+
+```bash
+npm install
+npm run dev
+npm run lint
+npm run build
+```
+
+The contact form is configured for Netlify Forms and the production site is
+deployable to either Netlify or Vercel using the included configuration files.
