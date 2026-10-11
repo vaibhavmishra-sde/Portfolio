@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
+  const [progress, setProgress] = useState(0);
   const [loadingText, setLoadingText] = useState('');
-  const fullText = "LOADING_ASSETS... // SYSTEM READY";
+  const fullText = "INITIALIZING_INTERFACE... // SYSTEM READY";
+  const checks = ['establishing secure session', 'verifying interface modules', 'loading portfolio manifest'];
 
   useEffect(() => {
     // Typing effect for the text
@@ -19,6 +21,10 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
       }
     }, 40);
 
+    const progressInterval = window.setInterval(() => {
+      setProgress((current) => Math.min(100, current + 4));
+    }, 80);
+
     const timer = setTimeout(() => {
       setIsVisible(false);
       exitTimer = window.setTimeout(onComplete, 1000); // Wait for exit animation
@@ -28,6 +34,7 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
       clearTimeout(timer);
       if (exitTimer !== undefined) window.clearTimeout(exitTimer);
       clearInterval(typingInterval);
+      clearInterval(progressInterval);
     };
   }, [onComplete]);
 
@@ -40,11 +47,16 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#020308]"
         >
+          <div className="cyber-scanlines" aria-hidden="true" />
+          <div className="absolute inset-6 sm:inset-10 border border-cyan-400/10 pointer-events-none" aria-hidden="true">
+            <span className="cyber-corner cyber-corner-tl" />
+            <span className="cyber-corner cyber-corner-br" />
+          </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center gap-8 w-full max-w-md px-8"
+            className="flex flex-col items-center gap-8 w-full max-w-md px-8 relative"
           >
             {/* Animated Logo/Spinner */}
             <div className="relative flex items-center justify-center w-20 h-20">
@@ -66,6 +78,16 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
               />
             </div>
 
+            <div className="w-full grid grid-cols-1 gap-2 font-mono text-[10px] text-slate-500 uppercase tracking-[0.16em]">
+              {checks.map((check, index) => (
+                <motion.div key={check} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.35 }} className="flex items-center gap-3">
+                  <span className="text-emerald-400">{index < 2 ? '✓' : '◌'}</span>
+                  <span>{check}</span>
+                  <span className="ml-auto text-cyan-400/60">{index < 2 ? 'ok' : 'wait'}</span>
+                </motion.div>
+              ))}
+            </div>
+
             {/* Progress Bar and Text */}
             <div className="w-full space-y-3">
               <div className="flex justify-between items-end text-xs font-mono text-slate-400">
@@ -75,14 +97,14 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
                   animate={{ opacity: 1 }}
                   transition={{ delay: 2 }}
                 >
-                  100%
+                  {progress}%
                 </motion.span>
               </div>
 
               <div className="w-full h-1 bg-[#101218] rounded-full overflow-hidden border border-[#1F2430]">
                 <motion.div
                   initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
+                  animate={{ width: `${progress}%` }}
                   transition={{ duration: 2, ease: "easeInOut" }}
                   className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full shadow-[0_0_10px_rgba(0,240,255,0.5)]"
                 />
