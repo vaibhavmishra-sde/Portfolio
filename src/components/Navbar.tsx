@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
           </a>
 
           {/* Desktop Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-[#101218]/80 p-1.5 rounded-full border border-[#1F2430]">
+          <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1 bg-[#101218]/80 p-1.5 rounded-full border border-[#1F2430]">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -156,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
             <span>Open to Developer Internships</span>
           </div>
 
-          <nav id="mobile-navigation" className="flex flex-col gap-1">
+          <nav id="mobile-navigation" aria-label="Mobile navigation" className="flex flex-col gap-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
