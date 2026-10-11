@@ -184,7 +184,7 @@ export const Projects: React.FC = () => {
             <span>PORTFOLIO WORK</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Featured <span className="gradient-text-cyan-purple">Projects</span>
+            Featured <em className="heading-accent">Projects</em>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             Practical applications of responsive web development, data processing, and mobile-first system architecture.

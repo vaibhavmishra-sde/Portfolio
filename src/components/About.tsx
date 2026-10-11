@@ -32,7 +32,7 @@ export const About: React.FC = () => {
             <span>BACKGROUND & IDENTITY</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            About <span className="gradient-text-cyan-purple">Me</span>
+            About <em className="heading-accent">Me</em>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             Turning curiosity into practical, user-focused software.

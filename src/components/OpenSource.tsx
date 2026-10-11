@@ -48,7 +48,7 @@ export const OpenSource: React.FC = () => {
             <span>COMMUNITY & COLLABORATION</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Open Source <span className="gradient-text-emerald-cyan">Contributions</span>
+            Open Source <em className="heading-accent">Contributions</em>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             Active participant in open-source ecosystems, collaborative version control with Git/GitHub, and community development.

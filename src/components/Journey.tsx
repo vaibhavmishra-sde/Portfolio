@@ -17,7 +17,7 @@ export const Journey: React.FC = () => {
             <span>PROGRESSION TIMELINE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Learning & <span className="gradient-text-cyan-purple">Building</span>
+            Learning & <em className="heading-accent">Building</em>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             A timeline of academic milestones, projects, open-source selections, and ongoing software development growth.

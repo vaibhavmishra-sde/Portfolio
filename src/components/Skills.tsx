@@ -25,7 +25,7 @@ export const Skills: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.5 }} className="flex flex-col items-center text-center mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono mb-3"><Layers className="w-3.5 h-3.5" /> TECHNICAL TOOLKIT</div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Skills I’m <span className="gradient-text-cyan-purple">Building With</span></h2>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Skills I’m <em className="heading-accent">Building With</em></h2>
         <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">A practical stack for creating responsive interfaces, working with data, and collaborating on software.</p>
         <div className="flex flex-wrap justify-center gap-2 mt-7">{categories.map((category) => <button key={category} onClick={() => setFilter(category)} className={`px-4 py-2 text-xs rounded-full border transition-all cursor-pointer ${filter === category ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/50' : 'bg-[#101218] text-slate-400 border-[#1F2430] hover:text-white'}`}>{category}</button>)}</div>
       </motion.div>

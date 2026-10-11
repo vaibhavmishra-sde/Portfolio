@@ -30,7 +30,7 @@ export const Services: React.FC = () => {
             <span>WHAT I BUILD</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Engineering <span className="gradient-text-cyan-purple">Capabilities</span>
+            Engineering <em className="heading-accent">Capabilities</em>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             Areas of expertise I'm actively developing and applying across real-world projects.

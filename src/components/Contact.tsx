@@ -93,7 +93,7 @@ export const Contact: React.FC = () => {
             <span>GET IN TOUCH</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Let's build something <span className="gradient-text-cyan-purple">useful</span>.
+            Let's build something <em className="heading-accent">useful</em>.
           </h2>
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mt-4">
             I'm currently looking for opportunities to apply my software development skills, curiosity, and problem-solving mindset.

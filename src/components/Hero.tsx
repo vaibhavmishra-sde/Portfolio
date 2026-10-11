@@ -23,7 +23,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onScrollToProjects }) 
 
         <motion.div variants={fadeUp} className="space-y-3">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-[-0.045em] text-white leading-[1.05]">
-            Hi, I'm <span className="gradient-text-cyan-purple">{PORTFOLIO_DATA.personal.name}</span>.
+            Hi, I'm <em className="heading-accent">{PORTFOLIO_DATA.personal.name}</em>.
           </h1>
           <p className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-slate-200 leading-snug">
             I build <TypingEffect phrases={PORTFOLIO_DATA.personal.typingPhrases} />

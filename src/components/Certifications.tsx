@@ -23,7 +23,7 @@ export const Certifications: React.FC = () => {
             <span>VERIFIED QUALIFICATIONS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Certifications & <span className="gradient-text-cyan-purple">Credentials</span>
+            Certifications & <em className="heading-accent">Credentials</em>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
             Certifications that strengthen my foundations in SQL, analytics, and structured problem solving.
