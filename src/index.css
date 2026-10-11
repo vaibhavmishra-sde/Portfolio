@@ -489,6 +489,18 @@
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
+.site-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .045;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+a:not(.skip-link) { text-underline-offset: 4px; text-decoration-color: transparent; transition: color .2s ease, text-decoration-color .2s ease; }
+a:not(.skip-link):hover { text-decoration-line: underline; text-decoration-color: var(--accent-cyan); }
+
 .cyber-corner {
   position: absolute;
   width: 18px;
