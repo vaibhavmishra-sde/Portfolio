@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Database, Mail, ArrowUp } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [localTime, setLocalTime] = useState('');
+  useEffect(() => {
+    const updateTime = () => setLocalTime(new Intl.DateTimeFormat('en-IN', { timeStyle: 'short', timeZone: 'Asia/Kolkata' }).format());
+    updateTime();
+    const timer = window.setInterval(updateTime, 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -73,6 +80,9 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono gap-2">
           <div>
             Designed & built with curiosity, care, and code.
+          </div>
+          <div className="text-[var(--accent-cyan)]" aria-label={`Currently building at ${localTime} local time`}>
+            <span className="mr-2 text-emerald-400">●</span>Currently building · {localTime} IST
           </div>
           <div>
             © {currentYear} {PORTFOLIO_DATA.personal.name}. All rights reserved.
