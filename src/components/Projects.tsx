@@ -201,7 +201,7 @@ export const Projects: React.FC = () => {
             </button>
           ))}
         </div>
-        <div className="border-t border-[#1F2430]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {visibleProjects.map((project) => (
             <motion.div
               key={project.id}
@@ -216,12 +216,12 @@ export const Projects: React.FC = () => {
               aria-haspopup="dialog"
               tabIndex={0}
               aria-label={`View details for ${project.name}`}
-              className="interactive-card group flex flex-col lg:flex-row lg:items-center lg:gap-8 justify-between border-b border-[#1F2430] bg-transparent hover:bg-[#101218] hover:border-cyan-400/50 px-3 py-7 lg:px-5 cursor-pointer transition-all duration-300"
+              className="interactive-card group flex flex-col justify-between rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/40 p-6 glass-panel hover-lift cursor-pointer transition-all duration-300"
             >
               <div>
                 
                 {/* Header Badge */}
-                <div className="flex items-center justify-between mb-4 lg:mb-2">
+                <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-1 rounded bg-[#151821] border border-[#1F2430] font-mono text-cyan-400 text-xs font-bold">
                     {project.number}
                   </span>
@@ -231,7 +231,7 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
+                <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
                   {project.name}
                 </h3>
 
@@ -250,7 +250,7 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Custom Visual Preview Widget */}
-                <div className="hidden lg:block max-w-sm opacity-70 group-hover:opacity-100 transition-opacity">{getVisualPreview(project.visualType)}</div>
+                {getVisualPreview(project.visualType)}
 
               </div>
 
