@@ -202,7 +202,7 @@ export const Contact: React.FC = () => {
                 Your message is delivered securely through the portfolio contact form.
               </p>
 
-              <form name="portfolio-contact" data-netlify="true" onSubmit={handleSubmit} className="space-y-4">
+              <form name="portfolio-contact" data-netlify="true" onSubmit={handleSubmit} aria-busy={submitState === 'sending'} className="space-y-4">
                 <div>
                   <label htmlFor="contact-name" className="block text-xs font-mono text-slate-400 mb-1">
                     Your Name / Organization
@@ -215,6 +215,7 @@ export const Contact: React.FC = () => {
                     value={name}
                     onChange={(e) => handleFieldChange(setName, e.target.value)}
                     placeholder="e.g. Engineering Recruiter / Hiring Manager"
+                    autoComplete="name"
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
                 </div>
@@ -231,6 +232,7 @@ export const Contact: React.FC = () => {
                     value={senderEmail}
                     onChange={(e) => handleFieldChange(setSenderEmail, e.target.value)}
                     placeholder="recruiter@company.com"
+                    autoComplete="email"
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
                 </div>
