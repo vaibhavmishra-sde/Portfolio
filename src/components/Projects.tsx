@@ -179,7 +179,7 @@ export const Projects: React.FC = () => {
         
         {/* Section Title */}
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono mb-3">
+          <div className="section-eyebrow">
             <Layers className="w-3.5 h-3.5" />
             <span>PORTFOLIO WORK</span>
           </div>

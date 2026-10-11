@@ -492,6 +492,18 @@
   color: var(--accent-cyan);
 }
 
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: .75rem;
+  color: #8f8f89;
+  font: 500 .7rem/1 'JetBrains Mono', monospace;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.section-eyebrow svg { width: .8rem; height: .8rem; color: var(--accent-cyan); }
+
 .cyber-scanlines {
   position: absolute;
   inset: 0;

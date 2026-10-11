@@ -12,7 +12,7 @@ export const Journey: React.FC = () => {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono mb-3">
+          <div className="section-eyebrow">
             <Compass className="w-3.5 h-3.5" />
             <span>PROGRESSION TIMELINE</span>
           </div>

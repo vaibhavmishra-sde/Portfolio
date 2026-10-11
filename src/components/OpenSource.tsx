@@ -43,7 +43,7 @@ export const OpenSource: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center text-center mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono mb-3">
+          <div className="section-eyebrow">
             <GitPullRequest className="w-3.5 h-3.5" />
             <span>COMMUNITY & COLLABORATION</span>
           </div>
