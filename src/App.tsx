@@ -99,7 +99,7 @@ export function App() {
       />
 
       {/* Main Content Sections */}
-      <main id="main-content" tabIndex={-1}>
+      <main id="main-content" tabIndex={-1} aria-label="Portfolio content">
         <Hero
           onOpenResume={() => setResumeOpen(true)}
           onScrollToProjects={scrollToProjects}
