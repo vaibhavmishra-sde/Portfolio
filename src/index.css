@@ -12,8 +12,8 @@
     --accent-blue: #2563eb;
     --accent-purple: #9333ea;
     --accent-emerald: #059669;
-    --text-primary: #f8fafc;
-    --text-muted: #94a3b8;
+    --text-primary: #c9c9c4;
+    --text-muted: #989892;
   }
 
   body {
@@ -23,6 +23,10 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong, b {
+    color: #ffffff;
   }
 
   button, a, input, textarea {
