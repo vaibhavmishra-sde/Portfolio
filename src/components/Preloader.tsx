@@ -48,15 +48,12 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#020308] preloader-shell"
         >
           <div className="cyber-scanlines" aria-hidden="true" />
-          <div className="absolute inset-6 sm:inset-10 border border-cyan-400/10 pointer-events-none" aria-hidden="true">
-            <span className="cyber-corner cyber-corner-tl" />
-            <span className="cyber-corner cyber-corner-br" />
-          </div>
+          <div className="preloader-vignette" aria-hidden="true" />
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center gap-8 w-full max-w-md px-8 relative"
+            className="preloader-content flex flex-col items-center gap-8 w-full max-w-md px-8 relative"
           >
             {/* Animated Logo/Spinner */}
             <div className="relative flex items-center justify-center w-24 h-24 rounded-full border border-white/5 bg-white/[.02]">
