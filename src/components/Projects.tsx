@@ -230,6 +230,8 @@ export const Projects: React.FC = () => {
                   </span>
                 </div>
 
+                <span className="project-fit-badge">{project.visualType === 'web_app' ? 'Frontend craft' : project.visualType === 'bal_kavach' ? 'Systems thinking' : 'Data problem-solving'}</span>
+
                 {/* Title */}
                 <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
                   {project.name}
