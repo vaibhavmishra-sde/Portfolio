@@ -61,7 +61,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onScrollToProjects }) 
         </motion.div>
       </motion.div>
 
-      <motion.div initial={{ opacity: 0, x: 50, rotateY: 15 }} animate={{ opacity: 1, x: 0, rotateY: 0 }} transition={{ delay: 0.4, duration: 0.8, type: "spring", damping: 20 }} className="lg:col-span-5 relative perspective-1000">
+        <motion.div initial={{ opacity: 0, x: 50, rotateY: 15 }} animate={{ opacity: 1, x: 0, rotateY: 0 }} transition={{ delay: 0.4, duration: 0.8, type: "spring", damping: 20 }} className="lg:col-span-5 relative perspective-1000 hero-code-wrap">
+          <div className="hero-orbit-label" aria-hidden="true"><span /> BUILD / SHIP / IMPROVE</div>
         <div className="interactive-card rounded-2xl bg-[#0c0e14]/90 border border-[#1a1e2b] p-5 shadow-2xl premium-glass hover-lift glow-cyan-sm overflow-hidden">
           {/* Terminal Window Chrome */}
           <div className="flex items-center gap-2 pb-4 border-b border-[#1a1e2b]">
