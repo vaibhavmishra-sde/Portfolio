@@ -98,6 +98,7 @@ export const Contact: React.FC = () => {
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mt-4">
             I'm currently looking for opportunities to apply my software development skills, curiosity, and problem-solving mindset.
           </p>
+          <div className="contact-response-note"><span className="contact-response-dot" /> Usually responds within 24–48 hours</div>
         </div>
 
         {/* Content Layout */}

@@ -535,6 +535,8 @@
 .hero-proof-line span:first-child { color: #67e8f9; }
 .hero-proof-line i { color: #334155; font-style: normal; }
 .project-fit-badge { display: inline-flex; margin-bottom: .65rem; padding: .25rem .55rem; border: 1px solid rgba(168,85,247,.22); border-radius: 999px; color: #c4b5fd; background: rgba(139,92,246,.08); font: 500 .58rem/1 'JetBrains Mono', monospace; letter-spacing: .04em; }
+.contact-response-note { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1rem; padding: .45rem .7rem; border: 1px solid rgba(16,185,129,.18); border-radius: 999px; color: #86efac; background: rgba(16,185,129,.06); font: 500 .64rem/1 'JetBrains Mono', monospace; }
+.contact-response-dot { width: .4rem; height: .4rem; border-radius: 999px; background: #34d399; box-shadow: 0 0 10px rgba(52,211,153,.8); }
 @media (max-width: 640px) { .recruiter-dock { left: 1rem; right: 1rem; bottom: .75rem; justify-content: space-between; } .recruiter-dock-label { display: none; } .recruiter-dock button { flex: 1; justify-content: center; } }
 .project-card:focus-within { border-color: rgba(34,211,238,.55); box-shadow: 0 0 0 3px rgba(34,211,238,.1), 0 18px 50px rgba(0,0,0,.25); }
 .portfolio-shell :is(button, a, input, textarea):focus-visible { outline: 2px solid #67e8f9; outline-offset: 4px; }
