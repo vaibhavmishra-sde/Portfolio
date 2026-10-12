@@ -71,7 +71,7 @@ export const StatsBar: React.FC = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="py-12 bg-[#08090D] relative">
+    <div ref={sectionRef} className="py-12 bg-[#08090D] relative stats-strip">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -99,7 +99,7 @@ const StatCard: React.FC<{ stat: StatItem; index: number; isVisible: boolean }> 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="p-5 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/30 glass-panel-hover text-center group transition-all"
+      className="p-5 rounded-2xl bg-[#101218] border border-[#1F2430] hover:border-cyan-500/30 glass-panel-hover text-center group transition-all stat-card"
     >
       <stat.icon className={`w-6 h-6 ${stat.color} mx-auto mb-3 group-hover:scale-110 transition-transform`} />
       <div className={`text-3xl font-extrabold ${stat.color} stat-number`}>
