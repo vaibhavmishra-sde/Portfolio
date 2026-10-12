@@ -75,6 +75,11 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
               />
             </div>
 
+            <div className="text-center -mt-2">
+              <div className="text-xl font-bold tracking-tight text-white">Vaibhav Mishra<span className="text-cyan-400">.</span></div>
+              <div className="mt-1 text-[10px] font-mono uppercase tracking-[.28em] text-cyan-300/70">Software Engineer Portfolio</div>
+            </div>
+
             <div className="w-full grid grid-cols-1 gap-2 font-mono text-[10px] text-slate-500 uppercase tracking-[0.16em]">
               {checks.map((check, index) => (
                 <motion.div key={check} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.35 }} className="flex items-center gap-3">
