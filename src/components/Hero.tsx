@@ -34,6 +34,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onScrollToProjects }) 
           {PORTFOLIO_DATA.personal.heroDescription}
         </motion.p>
 
+        <motion.div variants={fadeUp} className="hero-proof-line" aria-label="Working style">
+          {['Think in systems', 'Build with intent', 'Improve in public'].map((item, index) => (
+            <React.Fragment key={item}>
+              <span>{item}</span>{index < 2 && <i aria-hidden="true">/</i>}
+            </React.Fragment>
+          ))}
+        </motion.div>
+
         <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4 pt-2">
           <motion.button type="button" whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(0, 240, 255, 0.4)" }} whileTap={{ scale: 0.95 }} onClick={onScrollToProjects} className="animated-border px-6 py-3.5 rounded-xl bg-[#020308] text-cyan-300 font-bold text-sm tracking-wide flex items-center gap-2 hover:text-white cursor-pointer hover-lift shadow-[0_0_20px_rgba(0,240,255,0.2)]">
             <span>View My Projects</span>

@@ -531,6 +531,9 @@
 .recruiter-dock-label { padding: 0 .55rem; color: #64748b; font: 500 .58rem/1 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .12em; }
 .recruiter-dock button { display: inline-flex; align-items: center; gap: .35rem; padding: .5rem .7rem; border-radius: 999px; color: #cbd5e1; font-size: .68rem; font-weight: 700; cursor: pointer; }
 .recruiter-dock button:hover { color: #67e8f9; background: rgba(34,211,238,.1); }
+.hero-proof-line { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; color: #94a3b8; font: 500 .66rem/1 'JetBrains Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
+.hero-proof-line span:first-child { color: #67e8f9; }
+.hero-proof-line i { color: #334155; font-style: normal; }
 @media (max-width: 640px) { .recruiter-dock { left: 1rem; right: 1rem; bottom: .75rem; justify-content: space-between; } .recruiter-dock-label { display: none; } .recruiter-dock button { flex: 1; justify-content: center; } }
 .project-card:focus-within { border-color: rgba(34,211,238,.55); box-shadow: 0 0 0 3px rgba(34,211,238,.1), 0 18px 50px rgba(0,0,0,.25); }
 .portfolio-shell :is(button, a, input, textarea):focus-visible { outline: 2px solid #67e8f9; outline-offset: 4px; }
