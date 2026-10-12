@@ -25,6 +25,8 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html { scroll-padding-top: 6rem; }
+
   h1, h2, h3, h4, h5, h6, strong, b {
     color: #ffffff;
   }
@@ -490,6 +492,28 @@
   font-weight: 600;
   letter-spacing: -0.04em;
   color: var(--accent-cyan);
+}
+
+.portfolio-shell section { scroll-margin-top: 5.5rem; }
+.portfolio-shell button, .portfolio-shell a { transition-timing-function: cubic-bezier(.22, 1, .36, 1); }
+.portfolio-shell input, .portfolio-shell textarea { caret-color: var(--accent-cyan); }
+.portfolio-shell input::placeholder, .portfolio-shell textarea::placeholder { color: #64748b; opacity: .9; }
+.navbar-inner { max-width: 1180px; }
+.contact-form-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(0,240,255,.08), transparent 34%, transparent 70%, rgba(139,92,246,.08));
+}
+.contact-form-card > * { position: relative; z-index: 1; }
+.section-eyebrow::before, .section-eyebrow::after { content: ''; width: 22px; height: 1px; background: rgba(0,240,255,.5); }
+.portfolio-shell section { border-color: rgba(31,36,48,.7); }
+
+@media (max-width: 640px) {
+  .portfolio-shell section { scroll-margin-top: 4.5rem; }
+  .quick-facts-card { box-shadow: 0 12px 35px rgba(0, 0, 0, .24); }
 }
 
 .section-eyebrow {

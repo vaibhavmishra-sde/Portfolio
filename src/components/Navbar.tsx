@@ -59,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
         ? 'py-3 premium-glass' 
         : 'py-5 bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 navbar-inner">
         <div className="flex items-center justify-between">
           
           {/* Brand Identity */}

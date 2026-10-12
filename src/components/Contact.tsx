@@ -192,7 +192,7 @@ export const Contact: React.FC = () => {
 
           {/* Right Column: Quick Interactive Message Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#101218] border border-[#1F2430] glass-panel glow-cyan-sm relative">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#101218] border border-[#1F2430] glass-panel glow-cyan-sm relative contact-form-card">
               
               <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-cyan-400" />
