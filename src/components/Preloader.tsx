@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const LOADING_MESSAGES = [
+  'INITIALIZING_INTERFACE... // SYSTEM READY',
+  'INDEXING_PROJECTS... // CASE STUDIES READY',
+  'LOADING_SKILLS... // STACK VERIFIED',
+  "OPENING_CHANNEL... // LET'S BUILD",
+];
+
 export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);
   const [loadingText, setLoadingText] = useState('');
-  const fullText = "INITIALIZING_INTERFACE... // SYSTEM READY";
+  const [activeStep, setActiveStep] = useState(0);
   const checks = ['establishing secure session', 'verifying interface modules', 'loading portfolio manifest'];
 
   useEffect(() => {
-    // Typing effect for the text
-    let i = 0;
     let exitTimer: number | undefined;
-    const typingInterval = setInterval(() => {
-      if (i <= fullText.length) {
-        setLoadingText(fullText.slice(0, i));
-        i++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 40);
+    setLoadingText(LOADING_MESSAGES[0]);
+    const messageInterval = window.setInterval(() => {
+      setActiveStep((current) => (current + 1) % LOADING_MESSAGES.length);
+    }, 650);
 
     const progressInterval = window.setInterval(() => {
       setProgress((current) => Math.min(100, current + 4));
@@ -33,10 +34,14 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
     return () => {
       clearTimeout(timer);
       if (exitTimer !== undefined) window.clearTimeout(exitTimer);
-      clearInterval(typingInterval);
+      clearInterval(messageInterval);
       clearInterval(progressInterval);
     };
   }, [onComplete]);
+
+  useEffect(() => {
+    setLoadingText(LOADING_MESSAGES[activeStep]);
+  }, [activeStep]);
 
   return (
     <AnimatePresence>
