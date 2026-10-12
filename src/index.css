@@ -519,6 +519,10 @@
 .stat-card { position: relative; overflow: hidden; }
 .stat-card::after { content: ''; position: absolute; left: 15%; right: 15%; bottom: -1px; height: 2px; background: linear-gradient(90deg, transparent, rgba(34,211,238,.7), transparent); transform: scaleX(0); transition: transform .35s ease; }
 .stat-card:hover::after { transform: scaleX(1); }
+.project-card { min-height: 100%; }
+.project-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(125deg, rgba(34,211,238,.06), transparent 32%, transparent 68%, rgba(139,92,246,.06)); opacity: 0; transition: opacity .35s ease; }
+.project-card:hover::after { opacity: 1; }
+.project-card > * { position: relative; z-index: 1; }
 @media (max-width: 1024px) { .hero-orbit-label { right: .5rem; } .hero-code-wrap::after { inset: 4% -2% -3% 4%; } }
 
 @media (max-width: 640px) {
