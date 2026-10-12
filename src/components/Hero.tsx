@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import { ArrowRight, Download, Braces, Terminal, GitBranch, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, Braces, Terminal, GitBranch, CheckCircle2, Sparkles, BriefcaseBusiness, MapPin } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import { TypingEffect } from './TypingEffect';
@@ -58,6 +58,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onScrollToProjects }) 
           {['React', 'TypeScript', 'JavaScript', 'Python', 'SQL', 'Git'].map((tech) => (
             <span key={tech} className="px-2.5 py-1 rounded-md bg-[#101218] border border-[#1F2430] font-mono text-cyan-300/90 text-[11px]">{tech}</span>
           ))}
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="recruiter-snapshot w-full rounded-2xl border border-cyan-400/15 bg-cyan-400/[.035] p-4 sm:p-5">
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <span className="text-[10px] font-mono uppercase tracking-[.18em] text-cyan-300">Recruiter snapshot</span>
+            <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-300"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Available now</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex items-start gap-2.5"><BriefcaseBusiness className="w-4 h-4 text-cyan-400 mt-0.5" /><div><span className="block text-[10px] text-slate-500 uppercase tracking-wider">Best fit</span><span className="block mt-1 text-xs font-semibold text-slate-200">Frontend / Full-stack Intern</span></div></div>
+            <div className="flex items-start gap-2.5"><Sparkles className="w-4 h-4 text-purple-400 mt-0.5" /><div><span className="block text-[10px] text-slate-500 uppercase tracking-wider">Strength</span><span className="block mt-1 text-xs font-semibold text-slate-200">Product-minded builder</span></div></div>
+            <div className="flex items-start gap-2.5"><MapPin className="w-4 h-4 text-emerald-400 mt-0.5" /><div><span className="block text-[10px] text-slate-500 uppercase tracking-wider">Location</span><span className="block mt-1 text-xs font-semibold text-slate-200">Vadodara · India</span></div></div>
+          </div>
         </motion.div>
       </motion.div>
 

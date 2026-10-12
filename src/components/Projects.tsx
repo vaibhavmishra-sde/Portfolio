@@ -240,6 +240,11 @@ export const Projects: React.FC = () => {
                   {project.description}
                 </p>
 
+                <div className="mb-4 rounded-lg border border-emerald-500/15 bg-emerald-500/[.04] px-3 py-2">
+                  <span className="block text-[9px] font-mono uppercase tracking-wider text-emerald-400/80">Proof of impact</span>
+                  <span className="mt-1 block text-[11px] leading-relaxed text-slate-300">{project.outcomes[0]}</span>
+                </div>
+
                 {/* Tech Stack Pills */}
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {project.technologies.map((tech) => (
