@@ -11,15 +11,15 @@ const LOADING_MESSAGES = [
 export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [loadingText, setLoadingText] = useState('');
-  const [activeStep, setActiveStep] = useState(0);
+  const [loadingText, setLoadingText] = useState(LOADING_MESSAGES[0]);
   const checks = ['establishing secure session', 'verifying interface modules', 'loading portfolio manifest'];
 
   useEffect(() => {
     let exitTimer: number | undefined;
-    setLoadingText(LOADING_MESSAGES[0]);
+    let messageIndex = 0;
     const messageInterval = window.setInterval(() => {
-      setActiveStep((current) => (current + 1) % LOADING_MESSAGES.length);
+      messageIndex = (messageIndex + 1) % LOADING_MESSAGES.length;
+      setLoadingText(LOADING_MESSAGES[messageIndex]);
     }, 650);
 
     const progressInterval = window.setInterval(() => {
@@ -38,10 +38,6 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
       clearInterval(progressInterval);
     };
   }, [onComplete]);
-
-  useEffect(() => {
-    setLoadingText(LOADING_MESSAGES[activeStep]);
-  }, [activeStep]);
 
   return (
     <AnimatePresence>
