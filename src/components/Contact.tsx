@@ -51,6 +51,10 @@ export const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (website.trim()) return;
+    if (!name.trim() || !senderEmail.trim() || !message.trim()) {
+      setSubmitState('error');
+      return;
+    }
     setSubmitState('sending');
 
     const formData = new URLSearchParams({
@@ -213,6 +217,7 @@ export const Contact: React.FC = () => {
                     type="text"
                     name="name"
                     required
+                    minLength={2}
                     value={name}
                     onChange={(e) => handleFieldChange(setName, e.target.value)}
                     placeholder="e.g. Engineering Recruiter / Hiring Manager"
@@ -230,6 +235,7 @@ export const Contact: React.FC = () => {
                     type="email"
                     name="email"
                     required
+                    minLength={5}
                     value={senderEmail}
                     onChange={(e) => handleFieldChange(setSenderEmail, e.target.value)}
                     placeholder="recruiter@company.com"
@@ -246,6 +252,7 @@ export const Contact: React.FC = () => {
                     id="contact-message"
                     name="message"
                     required
+                    minLength={20}
                     rows={4}
                     value={message}
                     onChange={(e) => handleFieldChange(setMessage, e.target.value)}
