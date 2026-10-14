@@ -55,6 +55,9 @@ export function App() {
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
             setActiveSection(sectionId);
+            if (window.history.replaceState && window.location.hash !== `#${sectionId}`) {
+              window.history.replaceState(null, '', `#${sectionId}`);
+            }
           break;
           }
         }
