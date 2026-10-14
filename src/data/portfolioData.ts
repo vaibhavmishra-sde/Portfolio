@@ -73,7 +73,7 @@ export const PORTFOLIO_DATA = {
   ] as JourneyMilestone[],
   achievements: ['Selected as Contributor for GirlScript Summer of Code (GSSoC 2026)', 'Selected as Contributor for OpenSource Connect India (OSCI)', 'Certified in HackerRank SQL (Advanced)', 'Built practical projects with React, TypeScript, Python, SQL, and Firebase', 'Maintains 7.61 / 10 CGPA in BCA at Parul University', 'Active open-source contributor on GitHub'],
   stats: {
-    projectsBuilt: 5,
+    projectsBuilt: 3,
     techStack: 15,
     commits: '200+',
     openSourcePRs: 10,
