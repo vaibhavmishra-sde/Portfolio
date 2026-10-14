@@ -273,6 +273,11 @@ export const Projects: React.FC = () => {
 
             </motion.div>
           ))}
+          {visibleProjects.length === 0 && (
+            <p className="md:col-span-2 lg:col-span-3 rounded-2xl border border-dashed border-[#1F2430] p-10 text-center text-sm text-slate-400">
+              No projects in this category yet. Try another filter.
+            </p>
+          )}
         </div>
 
       </div>
