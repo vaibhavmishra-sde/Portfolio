@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
           </a>
 
           {/* Desktop Links */}
-          <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1 bg-[#101218]/80 p-1.5 rounded-full border border-[#1F2430]">
+          <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-0.5 bg-[#101218]/80 p-1.5 rounded-full border border-[#1F2430]">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-300 cursor-pointer overflow-hidden ${
+                    className={`relative whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-300 cursor-pointer overflow-hidden ${
                     isActive 
                       ? 'text-cyan-200 shadow-[0_0_15px_rgba(0,240,255,0.25)]' 
                       : 'text-slate-400 hover:text-white hover:bg-white/10'
