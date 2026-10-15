@@ -68,10 +68,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
             onClick={(e) => { e.preventDefault(); scrollToSection('overview'); }}
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400/60 transition-all glow-cyan-sm">
+            <div className="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400/60 transition-all glow-cyan-sm">
               <Database className="w-5 h-5 text-cyan-400 group-hover:rotate-12 transition-transform duration-300" />
             </div>
-            <div className="flex flex-col">
+            <div className="flex min-w-0 flex-col whitespace-nowrap">
               <span className="text-base font-bold tracking-tight text-white flex items-center gap-1.5">
                 {PORTFOLIO_DATA.personal.name}
               </span>
