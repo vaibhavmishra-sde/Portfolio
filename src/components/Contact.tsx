@@ -259,6 +259,7 @@ export const Contact: React.FC = () => {
                     placeholder="Hi Vaibhav, we reviewed your portfolio and would like to discuss a software developer opportunity..."
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors resize-none"
                   />
+                  <div className="mt-1 text-right text-[10px] font-mono text-slate-500" aria-live="polite">{message.length}/1000</div>
                 </div>
 
                 {submitState === 'success' && <p className="text-sm text-emerald-300" role="status">Thanks, your message has been sent.</p>}
