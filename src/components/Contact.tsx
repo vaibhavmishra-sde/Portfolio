@@ -207,7 +207,7 @@ export const Contact: React.FC = () => {
                 Your message is delivered securely through the portfolio contact form.
               </p>
 
-              <form name="portfolio-contact" data-netlify="true" onSubmit={handleSubmit} aria-busy={submitState === 'sending'} className="space-y-4">
+              <form name="portfolio-contact" data-netlify="true" onSubmit={handleSubmit} aria-busy={submitState === 'sending'} autoComplete="on" className="space-y-4">
                 <div>
                   <label htmlFor="contact-name" className="block text-xs font-mono text-slate-400 mb-1">
                     Your Name / Organization
