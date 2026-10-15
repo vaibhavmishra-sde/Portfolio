@@ -253,6 +253,7 @@ export const Contact: React.FC = () => {
                     name="message"
                     required
                     minLength={20}
+                    maxLength={1000}
                     rows={4}
                     value={message}
                     onChange={(e) => handleFieldChange(setMessage, e.target.value)}
