@@ -88,7 +88,7 @@ export function App() {
       <div className={`portfolio-shell relative min-h-screen overflow-hidden bg-[#020308] text-[#F5F7FA] selection:bg-cyan-500/30 selection:text-cyan-200 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <a href="#main-content" className="skip-link">Skip to content</a>
         <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-transparent" aria-hidden="true">
-          <div className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-[width] duration-150" style={{ width: `${scrollProgress}%` }} />
+          <div role="progressbar" aria-label="Page reading progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(scrollProgress)} className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-[width] duration-150" style={{ width: `${scrollProgress}%` }} />
         </div>
         <div className="site-background" aria-hidden="true" />
         <FloatingParticles />
