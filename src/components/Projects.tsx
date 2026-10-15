@@ -194,12 +194,15 @@ export const Projects: React.FC = () => {
         {/* Project Cards Grid */}
         <div className="flex flex-wrap justify-center gap-2 mb-8" role="group" aria-label="Filter projects">
           <Filter className="w-4 h-4 text-cyan-400 self-center mr-1" aria-hidden="true" />
-          {[['all', 'All'], ['web', 'Web'], ['data', 'Data'], ['mobile', 'Mobile']].map(([value, label]) => (
+          {[['all', 'All'], ['web', 'Web'], ['data', 'Data'], ['mobile', 'Mobile']].map(([value, label]) => {
+            const count = value === 'all' ? PORTFOLIO_DATA.projects.length : PORTFOLIO_DATA.projects.filter((project) => value === 'web' ? project.visualType === 'web_app' : value === 'mobile' ? project.visualType === 'bal_kavach' : ['data_platform', 'financial_dashboard', 'customer_segmentation'].includes(project.visualType)).length;
+            return (
             <button key={value} type="button" onClick={() => setFilter(value as typeof filter)} aria-pressed={filter === value}
               className={`px-4 py-2 rounded-full text-xs font-semibold border transition-colors ${filter === value ? 'bg-cyan-500/20 border-cyan-400/60 text-cyan-200' : 'bg-[#101218] border-[#1F2430] text-slate-400 hover:text-white'}`}>
-              {label}
+              {label} <span className="ml-1 opacity-60">{count}</span>
             </button>
-          ))}
+            );
+          })}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {visibleProjects.map((project) => (
