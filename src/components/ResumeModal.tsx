@@ -52,6 +52,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
+              aria-label="Print or save resume as PDF"
               className="px-3 py-1.5 rounded-lg bg-[#151821] hover:bg-cyan-500/10 text-slate-300 hover:text-cyan-300 border border-[#1F2430] text-xs font-mono flex items-center gap-1.5 transition-colors cursor-pointer"
             >
               <Printer className="w-3.5 h-3.5 text-cyan-400" />
@@ -176,6 +177,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </span>
           <button
             onClick={handlePrint}
+            aria-label="Download or print resume"
             className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-[#08090D] font-bold text-xs flex items-center gap-2 transition-all glow-cyan-sm cursor-pointer"
           >
             <Download className="w-4 h-4" />
