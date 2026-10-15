@@ -498,7 +498,7 @@
 .portfolio-shell button, .portfolio-shell a { transition-timing-function: cubic-bezier(.22, 1, .36, 1); }
 .portfolio-shell input, .portfolio-shell textarea { caret-color: var(--accent-cyan); }
 .portfolio-shell input::placeholder, .portfolio-shell textarea::placeholder { color: #64748b; opacity: .9; }
-.navbar-inner { max-width: 1180px; }
+.navbar-inner { max-width: 1280px; }
 .navbar-scrolled { box-shadow: 0 12px 34px rgba(0,0,0,.24), inset 0 -1px 0 rgba(34,211,238,.08); }
 .contact-form-card::before {
   content: '';
