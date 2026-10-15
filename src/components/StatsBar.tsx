@@ -71,7 +71,7 @@ export const StatsBar: React.FC = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="py-12 bg-[#08090D] relative stats-strip">
+    <section ref={sectionRef} aria-label="Portfolio highlights" className="py-12 bg-[#08090D] relative stats-strip">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -85,7 +85,7 @@ export const StatsBar: React.FC = () => {
           ))}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
