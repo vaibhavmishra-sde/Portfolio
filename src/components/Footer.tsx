@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4 text-slate-400 text-xs font-mono">
+          <nav aria-label="Footer links" className="flex items-center gap-4 text-slate-400 text-xs font-mono">
             <a
               href={PORTFOLIO_DATA.personal.github}
               target="_blank"
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
             >
               <Mail className="w-4 h-4" /> Email
             </a>
-          </div>
+          </nav>
 
           {/* Back to Top */}
           <button
