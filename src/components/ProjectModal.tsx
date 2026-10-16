@@ -132,6 +132,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <span className="text-cyan-300">Interactive Project Mockup</span>
           </div>
 
+          {project.visualType === 'web_app' && (
+            <div className="space-y-3 font-mono text-xs">
+              <div className="flex items-center gap-1.5 border-b border-[#1F2430] pb-3">
+                <span className="h-2 w-2 rounded-full bg-rose-400" />
+                <span className="h-2 w-2 rounded-full bg-amber-300" />
+                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                <span className="ml-2 text-[10px] text-slate-500">portfolio interface</span>
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                {['Discover', 'Build', 'Connect'].map((section) => (
+                  <div key={section} className="rounded-lg border border-[#1F2430] bg-[#101218] p-3 text-center text-slate-300">
+                    {section}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {project.visualType === 'financial_dashboard' && (
             <div className="space-y-3 font-mono text-xs">
               <div className="grid grid-cols-3 gap-2">
