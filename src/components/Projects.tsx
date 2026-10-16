@@ -204,6 +204,10 @@ export const Projects: React.FC = () => {
             );
           })}
         </div>
+        <p className="mb-6 text-center text-xs font-mono text-slate-500" aria-live="polite">
+          Showing {visibleProjects.length} {visibleProjects.length === 1 ? 'project' : 'projects'}
+          {filter !== 'all' ? ` in ${filter}` : ''}.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {visibleProjects.map((project) => (
             <motion.div
