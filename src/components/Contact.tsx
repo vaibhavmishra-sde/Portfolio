@@ -62,6 +62,7 @@ export const Contact: React.FC = () => {
       name: name.trim(),
       email: senderEmail.trim(),
       message: message.trim(),
+      'bot-field': website.trim(),
     });
 
     try {
@@ -116,10 +117,6 @@ export const Contact: React.FC = () => {
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
                   <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <label htmlFor="contact-website" className="sr-only">Leave this field empty</label>
-                  <input id="contact-website" type="text" name="bot-field" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                 </div>
                 <div>
                   <div className="text-xs font-mono text-slate-400">Direct Email</div>
@@ -207,7 +204,11 @@ export const Contact: React.FC = () => {
                 Your message is delivered securely through the portfolio contact form.
               </p>
 
-              <form name="portfolio-contact" data-netlify="true" onSubmit={handleSubmit} aria-busy={submitState === 'sending'} autoComplete="on" className="space-y-4">
+              <form name="portfolio-contact" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} aria-busy={submitState === 'sending'} autoComplete="on" className="space-y-4">
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="contact-website">Leave this field empty</label>
+                  <input id="contact-website" type="text" name="bot-field" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" />
+                </div>
                 <div>
                   <label htmlFor="contact-name" className="block text-xs font-mono text-slate-400 mb-1">
                     Your Name / Organization
