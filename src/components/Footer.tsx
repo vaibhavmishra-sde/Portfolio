@@ -37,6 +37,7 @@ export const Footer: React.FC = () => {
               href={PORTFOLIO_DATA.personal.github}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit Vaibhav Mishra's GitHub profile (opens in a new tab)"
               className="hover:text-cyan-300 transition-colors flex items-center gap-1"
             >
               <GithubIcon className="w-4 h-4" /> GitHub
@@ -45,6 +46,7 @@ export const Footer: React.FC = () => {
               href={PORTFOLIO_DATA.personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit Vaibhav Mishra's LinkedIn profile (opens in a new tab)"
               className="hover:text-purple-300 transition-colors flex items-center gap-1"
             >
               <LinkedinIcon className="w-4 h-4" /> LinkedIn
