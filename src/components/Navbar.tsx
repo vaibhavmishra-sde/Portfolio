@@ -89,6 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
               return (
                 <button
                   key={item.id}
+                  type="button"
                   onClick={() => scrollToSection(item.id)}
                   aria-current={isActive ? 'page' : undefined}
                     className={`relative whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-300 cursor-pointer overflow-hidden ${
@@ -116,6 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
 
             {/* Resume Button */}
             <button
+              type="button"
               onClick={onOpenResume}
               aria-label="Open resume"
               className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-200 bg-[#151821] hover:bg-cyan-500/10 hover:text-cyan-300 border border-[#1F2430] hover:border-cyan-500/40 rounded-lg transition-all duration-200 focus:outline-none cursor-pointer"
@@ -128,14 +130,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center gap-2">
             <button
+              type="button"
               onClick={onOpenResume}
               className="p-2 text-slate-300 hover:text-cyan-400 bg-[#101218] border border-[#1F2430] rounded-lg cursor-pointer"
               title="Download Resume"
+              aria-label="Open resume"
             >
               <FileText className="w-4 h-4" />
             </button>
 
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-lg bg-[#101218] border border-[#1F2430] text-slate-300 hover:text-white focus:outline-none cursor-pointer"
               aria-label="Toggle mobile menu"
@@ -161,6 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
             {navItems.map((item) => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => scrollToSection(item.id)}
                 aria-current={activeSection === item.id ? 'page' : undefined}
                 className={`text-left px-4 py-2.5 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
@@ -174,6 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
             ))}
 
             <button
+              type="button"
               onClick={() => { setMobileMenuOpen(false); onOpenResume(); }}
               className="mt-2 flex items-center justify-center gap-2 w-full py-3 text-xs font-semibold text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 rounded-lg cursor-pointer"
             >
