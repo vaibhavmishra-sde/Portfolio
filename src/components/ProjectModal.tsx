@@ -187,6 +187,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
           )}
 
+          {project.visualType === 'data_platform' && (
+            <div className="space-y-3 font-mono text-xs">
+              <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2 text-center text-[10px]">
+                {['Raw records', 'RFM scores', 'Segments'].map((step, index) => (
+                  <React.Fragment key={step}>
+                    <span className="rounded-lg border border-[#1F2430] bg-[#101218] px-2 py-3 text-slate-300">{step}</span>
+                    {index < 2 && <span className="text-cyan-400" aria-hidden="true">→</span>}
+                  </React.Fragment>
+                ))}
+              </div>
+              <div className="rounded-lg border border-cyan-500/20 bg-cyan-500/5 p-3 text-[11px] text-slate-300">
+                Repeatable analysis workflow for actionable customer groups.
+              </div>
+            </div>
+          )}
+
           {project.visualType === 'bal_kavach' && (
             <div className="space-y-3 font-mono text-xs">
               <div className="p-3 rounded bg-[#101218] border border-emerald-500/30 text-emerald-300 flex items-center justify-between">
