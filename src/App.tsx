@@ -23,6 +23,7 @@ export function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const scrollBehavior = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
   useEffect(() => {
     let tabScrollTimer: number | undefined;
@@ -33,7 +34,7 @@ export function App() {
       const el = document.getElementById(tabParam);
       if (el) {
         tabScrollTimer = window.setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
+          el.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
       }
     }
@@ -78,7 +79,7 @@ export function App() {
   const scrollToProjects = () => {
     const el = document.getElementById('projects');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: scrollBehavior() });
     }
   };
 
