@@ -172,6 +172,7 @@ export const Contact: React.FC = () => {
                   href={personal.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Visit Vaibhav Mishra's LinkedIn profile (opens in a new tab)"
                   className="flex-1 py-3 px-4 rounded-xl bg-[#151821] hover:bg-cyan-500/10 border border-[#1F2430] hover:border-cyan-500/40 text-xs font-bold text-slate-200 hover:text-cyan-300 flex items-center justify-center gap-2 transition-colors"
                 >
                   <LinkedinIcon className="w-4 h-4" />
@@ -182,6 +183,7 @@ export const Contact: React.FC = () => {
                   href={personal.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Visit Vaibhav Mishra's GitHub profile (opens in a new tab)"
                   className="flex-1 py-3 px-4 rounded-xl bg-[#151821] hover:bg-purple-500/10 border border-[#1F2430] hover:border-purple-500/40 text-xs font-bold text-slate-200 hover:text-purple-300 flex items-center justify-center gap-2 transition-colors"
                 >
                   <GithubIcon className="w-4 h-4" />
