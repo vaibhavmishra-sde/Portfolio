@@ -50,7 +50,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
     if (element) {
       const yOffset = -80;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      window.scrollTo({ top: y, behavior });
     }
   };
 
