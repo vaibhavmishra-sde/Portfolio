@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Social Links */}
-          <nav aria-label="Footer links" className="flex items-center gap-4 text-slate-400 text-xs font-mono">
+          <nav aria-label="Footer social links" className="flex items-center gap-4 text-slate-400 text-xs font-mono">
             <a
               href={PORTFOLIO_DATA.personal.github}
               target="_blank"
@@ -53,6 +53,7 @@ export const Footer: React.FC = () => {
             </a>
             <a
               href={`mailto:${PORTFOLIO_DATA.personal.email}`}
+              aria-label={`Email ${PORTFOLIO_DATA.personal.name}`}
               className="hover:text-emerald-300 transition-colors flex items-center gap-1"
             >
               <Mail className="w-4 h-4" /> Email
