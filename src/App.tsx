@@ -19,7 +19,12 @@ import { Preloader } from './components/Preloader';
 import { RecruiterDock } from './components/RecruiterDock';
 
 export function App() {
-  const [activeSection, setActiveSection] = useState('overview');
+  const [activeSection, setActiveSection] = useState(() => {
+    const sectionFromHash = window.location.hash.slice(1);
+    return ['overview', 'about', 'services', 'skills', 'pipeline', 'projects', 'opensource', 'certifications', 'journey', 'contact'].includes(sectionFromHash)
+      ? sectionFromHash
+      : 'overview';
+  });
   const [resumeOpen, setResumeOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -41,8 +46,6 @@ export function App() {
 
     // Scroll spy for active section highlight
     const sections = ['overview', 'about', 'services', 'skills', 'pipeline', 'projects', 'opensource', 'certifications', 'journey', 'contact'];
-    const initialSection = window.location.hash.slice(1);
-    if (sections.includes(initialSection)) setActiveSection(initialSection);
     
     let animationFrame: number | null = null;
     const handleScroll = () => {
