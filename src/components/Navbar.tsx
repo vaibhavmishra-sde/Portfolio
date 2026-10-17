@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
           <a 
             href="#overview" 
             onClick={(e) => { e.preventDefault(); scrollToSection('overview'); }}
-            className="flex items-center gap-3 group focus:outline-none"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D] rounded-xl"
           >
             <div className="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400/60 transition-all glow-cyan-sm">
               <Database className="w-5 h-5 text-cyan-400 group-hover:rotate-12 transition-transform duration-300" />
@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
                   type="button"
                   onClick={() => scrollToSection(item.id)}
                   aria-current={isActive ? 'page' : undefined}
-                    className={`relative whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-300 cursor-pointer overflow-hidden ${
+                    className={`relative whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-300 cursor-pointer overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                     isActive 
                       ? 'text-cyan-200 shadow-[0_0_15px_rgba(0,240,255,0.25)]' 
                       : 'text-slate-400 hover:text-white hover:bg-white/10'
