@@ -237,6 +237,7 @@ export const Contact: React.FC = () => {
                     id="contact-email"
                     type="email"
                     name="email"
+                    inputMode="email"
                     required
                     minLength={5}
                     value={senderEmail}
@@ -254,6 +255,7 @@ export const Contact: React.FC = () => {
                   <textarea
                     id="contact-message"
                     name="message"
+                    spellCheck="true"
                     required
                     minLength={20}
                     maxLength={1000}
