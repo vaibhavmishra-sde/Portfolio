@@ -41,6 +41,8 @@ export function App() {
 
     // Scroll spy for active section highlight
     const sections = ['overview', 'about', 'services', 'skills', 'pipeline', 'projects', 'opensource', 'certifications', 'journey', 'contact'];
+    const initialSection = window.location.hash.slice(1);
+    if (sections.includes(initialSection)) setActiveSection(initialSection);
     
     let animationFrame: number | null = null;
     const handleScroll = () => {
