@@ -204,7 +204,7 @@ export const Projects: React.FC = () => {
             );
           })}
         </div>
-        <p className="mb-6 text-center text-xs font-mono text-slate-500" aria-live="polite">
+        <p id="project-filter-status" className="mb-6 text-center text-xs font-mono text-slate-500" aria-live="polite" role="status">
           Showing {visibleProjects.length} {visibleProjects.length === 1 ? 'project' : 'projects'}
           {filter !== 'all' ? ` in ${filter}` : ''}.
         </p>
