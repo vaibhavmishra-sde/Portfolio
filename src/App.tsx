@@ -16,7 +16,6 @@ import { CustomCursor } from './components/CustomCursor';
 import { FloatingParticles } from './components/FloatingParticles';
 import { ResumeModal } from './components/ResumeModal';
 import { Preloader } from './components/Preloader';
-import { RecruiterDock } from './components/RecruiterDock';
 
 export function App() {
   const [activeSection, setActiveSection] = useState(() => {
@@ -147,7 +146,6 @@ export function App() {
 
       {/* Footer */}
       <Footer />
-      <RecruiterDock onOpenResume={() => setResumeOpen(true)} />
 
       {/* Resume Modal Preview */}
       <ResumeModal
