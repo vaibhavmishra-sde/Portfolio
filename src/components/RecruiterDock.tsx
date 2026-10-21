@@ -13,8 +13,8 @@ export const RecruiterDock: React.FC<RecruiterDockProps> = ({ onOpenResume }) =>
     <aside className="recruiter-dock" aria-label="Recruiter quick actions">
       <span className="recruiter-dock-label">Quick scan</span>
       <button type="button" onClick={onOpenResume}><FileText className="w-3.5 h-3.5" /> Resume</button>
-      <button type="button" onClick={() => goTo('projects')}><BriefcaseBusiness className="w-3.5 h-3.5" /> Work</button>
-      <button type="button" onClick={() => goTo('contact')}><ArrowUpRight className="w-3.5 h-3.5" /> Connect</button>
+      <button type="button" onClick={() => goTo('projects')} aria-label="Jump to featured work"><BriefcaseBusiness className="w-3.5 h-3.5" /> Work</button>
+      <button type="button" onClick={() => goTo('contact')} aria-label="Jump to contact section"><ArrowUpRight className="w-3.5 h-3.5" /> Connect</button>
     </aside>
   );
 };
