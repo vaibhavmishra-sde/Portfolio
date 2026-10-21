@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit Vaibhav Mishra's GitHub profile (opens in a new tab)"
-              className="hover:text-cyan-300 transition-colors flex items-center gap-1"
+              className="hover:text-cyan-300 transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
             >
               <GithubIcon className="w-4 h-4" /> GitHub
             </a>
