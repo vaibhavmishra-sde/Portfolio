@@ -92,6 +92,8 @@ export function App() {
   const scrollToProjects = () => {
     const el = document.getElementById('projects');
     if (el) {
+      window.history.replaceState(null, '', '#projects');
+      setActiveSection('projects');
       el.scrollIntoView({ behavior: scrollBehavior() });
     }
   };
