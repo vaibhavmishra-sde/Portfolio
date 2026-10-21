@@ -4,7 +4,10 @@ import { ArrowUpRight, BriefcaseBusiness, FileText } from 'lucide-react';
 interface RecruiterDockProps { onOpenResume: () => void; }
 
 export const RecruiterDock: React.FC<RecruiterDockProps> = ({ onOpenResume }) => {
-  const goTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const goTo = (id: string) => {
+    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    document.getElementById(id)?.scrollIntoView({ behavior });
+  };
 
   return (
     <aside className="recruiter-dock" aria-label="Recruiter quick actions">
