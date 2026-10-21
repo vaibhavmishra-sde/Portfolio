@@ -81,6 +81,15 @@ export function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const syncSectionFromHash = () => {
+      const section = window.location.hash.slice(1);
+      if (section && document.getElementById(section)) setActiveSection(section);
+    };
+    window.addEventListener('hashchange', syncSectionFromHash);
+    return () => window.removeEventListener('hashchange', syncSectionFromHash);
+  }, []);
+
   const scrollToProjects = () => {
     const el = document.getElementById('projects');
     if (el) {
