@@ -96,6 +96,9 @@ npm run build
 The contact form is configured for Netlify Forms and the production site is
 deployable to either Netlify or Vercel using the included configuration files.
 
+The interface keeps navigation and contact actions close to the content without
+obscuring the page on smaller screens.
+
 ### Quality checks
 
 Run `npm run check` before opening a pull request. It runs TypeScript checks,
