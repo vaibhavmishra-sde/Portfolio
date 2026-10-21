@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
             <button
               type="button"
               onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
-              className="p-2.5 rounded-lg bg-[#101218] border border-[#1F2430] text-slate-300 hover:text-white focus:outline-none cursor-pointer"
+              className="p-2.5 rounded-lg bg-[#101218] border border-[#1F2430] text-slate-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer"
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
