@@ -44,6 +44,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
     };
   }, [mobileMenuOpen]);
 
+  useEffect(() => {
+    const closeMenuOnDesktop = () => {
+      if (window.innerWidth >= 1024) setMobileMenuOpen(false);
+    };
+    window.addEventListener('resize', closeMenuOnDesktop);
+    return () => window.removeEventListener('resize', closeMenuOnDesktop);
+  }, []);
+
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
@@ -142,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
 
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
               className="p-2.5 rounded-lg bg-[#101218] border border-[#1F2430] text-slate-300 hover:text-white focus:outline-none cursor-pointer"
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
