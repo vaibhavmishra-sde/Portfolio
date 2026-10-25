@@ -192,7 +192,7 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Project Cards Grid */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8" role="group" aria-label="Filter projects">
+        <div className="flex flex-wrap justify-center gap-2 mb-8" role="group" aria-label="Filter projects" aria-controls="project-list">
           <Filter className="w-4 h-4 text-cyan-400 self-center mr-1" aria-hidden="true" />
           {[['all', 'All'], ['web', 'Web'], ['data', 'Data'], ['mobile', 'Mobile']].map(([value, label]) => {
             const count = value === 'all' ? PORTFOLIO_DATA.projects.length : PORTFOLIO_DATA.projects.filter((project) => value === 'web' ? project.visualType === 'web_app' : value === 'mobile' ? project.visualType === 'bal_kavach' : ['data_platform', 'financial_dashboard', 'customer_segmentation'].includes(project.visualType)).length;
@@ -208,7 +208,7 @@ export const Projects: React.FC = () => {
           Showing {visibleProjects.length} {visibleProjects.length === 1 ? 'project' : 'projects'}
           {filter !== 'all' ? ` in ${filter}` : ''}.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="project-list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {visibleProjects.map((project) => (
             <motion.div
               key={project.id}
