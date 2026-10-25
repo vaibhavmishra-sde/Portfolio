@@ -106,3 +106,6 @@ obscuring the page on smaller screens.
 
 Run `npm run check` before opening a pull request. It runs TypeScript checks,
 Oxlint, and the production build in one command.
+
+For responsive QA, verify the skip link, keyboard focus order, project filters,
+modal dismissal, and contact-form feedback at both narrow and wide viewports.
