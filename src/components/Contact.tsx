@@ -225,6 +225,7 @@ export const Contact: React.FC = () => {
                     onChange={(e) => handleFieldChange(setName, e.target.value)}
                     placeholder="e.g. Engineering Recruiter / Hiring Manager"
                     autoComplete="name"
+                    aria-invalid={submitState === 'error' && !name.trim()}
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
                 </div>
@@ -244,6 +245,7 @@ export const Contact: React.FC = () => {
                     onChange={(e) => handleFieldChange(setSenderEmail, e.target.value)}
                     placeholder="recruiter@company.com"
                     autoComplete="email"
+                    aria-invalid={submitState === 'error' && !senderEmail.trim()}
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"
                   />
                 </div>
@@ -264,6 +266,7 @@ export const Contact: React.FC = () => {
                     onChange={(e) => handleFieldChange(setMessage, e.target.value)}
                     placeholder="Hi Vaibhav, we reviewed your portfolio and would like to discuss a software developer opportunity..."
                     aria-describedby="message-character-count"
+                    aria-invalid={submitState === 'error' && message.trim().length < 20}
                     className="w-full px-4 py-3 rounded-xl bg-[#08090D] border border-[#1F2430] focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors resize-none"
                   />
                   <div id="message-character-count" className="mt-1 text-right text-[10px] font-mono text-slate-500" aria-live="polite">{message.length}/1000 characters</div>
