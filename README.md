@@ -8,11 +8,14 @@ https://portfolio-vaibhavmishra-sde.vercel.app/
 
 ## 🛠️ Tech Stack
 
-- **React 18 + TypeScript** — Component architecture
+- **React 19 + TypeScript** — Component architecture
 - **Vite** — Lightning-fast build tool
 - **Tailwind CSS v4** — Utility-first styling
 - **Lucide React** — Clean icon library
 - **Plus Jakarta Sans / JetBrains Mono** — Premium typography
+
+The project is intentionally dependency-light: Tailwind utilities handle layout
+and responsive styling, while Framer Motion is used for focused page transitions.
 
 ## ✨ Features
 
