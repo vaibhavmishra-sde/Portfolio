@@ -35,6 +35,12 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  @media (pointer: coarse) {
+    button, a {
+      min-height: 44px;
+    }
+  }
+
   code, pre, .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
