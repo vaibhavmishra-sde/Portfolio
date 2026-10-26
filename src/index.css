@@ -27,6 +27,8 @@
 
   html { scroll-padding-top: 6rem; }
 
+  body { overflow-x: hidden; }
+
   h1, h2, h3, h4, h5, h6, strong, b {
     color: #ffffff;
   }
@@ -505,6 +507,21 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] {
 }
 
 .portfolio-shell section { scroll-margin-top: 5.5rem; }
+.portfolio-shell section:not(#overview) {
+  position: relative;
+  isolation: isolate;
+}
+.portfolio-shell section:not(#overview)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(88%, 1100px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, .12), transparent);
+  pointer-events: none;
+}
 .portfolio-shell button, .portfolio-shell a { transition-timing-function: cubic-bezier(.22, 1, .36, 1); }
 .portfolio-shell input, .portfolio-shell textarea { caret-color: var(--accent-cyan); }
 .portfolio-shell input::placeholder, .portfolio-shell textarea::placeholder { color: #64748b; opacity: .9; }
@@ -556,6 +573,7 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] {
 @media (max-width: 640px) {
   .portfolio-shell section { scroll-margin-top: 4.5rem; }
   .quick-facts-card { box-shadow: 0 12px 35px rgba(0, 0, 0, .24); }
+  .premium-glass { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
 }
 
 .section-eyebrow {
