@@ -1,0 +1,4 @@
+.hero:after{content:'';position:absolute;z-index:0;top:170px;right:8%;width:190px;height:250px;border:1px solid rgba(82,107,93,.35);border-radius:48% 48% 10px 10px;background:linear-gradient(180deg,rgba(20,24,24,.05),rgba(20,24,24,.35)),url('/vaibhav-mishra.jpg') center 22%/cover;box-shadow:0 20px 55px rgba(25,28,27,.18);transform:rotate(3deg);animation:portraitFloat 8s ease-in-out infinite;}
+.hero h1,.hero-bottom,.scroll-cue{position:relative;z-index:1}
+@keyframes portraitFloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@media(max-width:700px){.hero:after{top:135px;right:8%;width:105px;height:145px;opacity:.88}.hero h1{position:relative;z-index:2}}
