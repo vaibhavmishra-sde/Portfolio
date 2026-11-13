@@ -1,0 +1,1 @@
+@media (prefers-reduced-motion:no-preference){.hero:before{animation:skyShift 16s ease-in-out infinite alternate,heroDrift 1ms linear both;animation-timeline:auto,scroll(root)}@keyframes heroDrift{from{background-position:0 0,0 0,0 0,0 0}to{background-position:0 90px,0 -60px,40px 30px,0 0}}}.section{scroll-margin-top:92px}.contact{scroll-margin-top:92px}
