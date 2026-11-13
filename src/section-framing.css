@@ -1,0 +1,1 @@
+.section{padding-top:52px}.section-label{position:relative;padding-left:18px}.section-label:before{content:'';position:absolute;left:0;top:.18em;width:3px;height:1.1em;background:var(--accent);border-radius:3px}.section-heading{align-items:end}.section-heading .section-label{font-size:12px}.section-heading p:before{content:'↘ ';color:var(--accent)}
