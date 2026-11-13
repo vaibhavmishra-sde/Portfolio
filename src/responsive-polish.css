@@ -1,0 +1,2 @@
+@media (max-width:700px){.hero:before{height:230px}.hero:after{pointer-events:none}.project:after{right:14px}.hero-links a{min-height:28px}.contact input,.contact textarea{font-size:16px}}
+@media (prefers-reduced-motion:reduce){.hero:before,.hero:after,.hero .eyebrow:before,.hero .scroll-cue,.hero-copy,.section,.contact,.footer,.project{animation:none!important;transition:none!important}}
