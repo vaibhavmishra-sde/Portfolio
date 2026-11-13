@@ -1,0 +1,1 @@
+.section:nth-of-type(odd){background:#e9e5dd}.section,.contact{position:relative}.section:before,.contact:before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,rgba(82,107,93,.035),transparent 35%)}
