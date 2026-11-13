@@ -1,0 +1,1 @@
+@supports (animation-timeline:scroll()){.site:before{content:'';position:fixed;z-index:60;top:0;left:0;height:3px;width:100%;transform-origin:left;background:linear-gradient(90deg,#526b5d,#a9c8b4);animation:scrollProgress linear both;animation-timeline:scroll(root)}@keyframes scrollProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}}
