@@ -1,0 +1,1 @@
+.project{background:rgba(255,255,255,.25);padding-left:18px;padding-right:18px;border-radius:2px}.project h3{font-size:clamp(28px,3vw,40px)}.project-number{font-size:13px;letter-spacing:.08em}.project-status{color:var(--accent);font-size:10px;letter-spacing:.13em}.project:hover{background:rgba(82,107,93,.07);box-shadow:inset 4px 0 0 var(--accent)}
