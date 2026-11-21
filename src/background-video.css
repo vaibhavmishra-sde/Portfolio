@@ -15,3 +15,5 @@
 .contact-copy h2{font-size:clamp(44px,8vw,116px);letter-spacing:-.095em;max-width:100%;overflow-wrap:normal}
 .contact-copy{min-width:0}.contact-copy h2{width:100%;word-break:normal;overflow:visible}.contact-copy h2 br{display:block}
 @media(max-width:760px){.contact-copy h2{font-size:clamp(30px,10vw,58px);line-height:1;letter-spacing:-.055em;white-space:normal;transform:none}.contact-copy{max-width:100%;overflow:visible}}
+.contact-copy h2{display:block;font-size:clamp(32px,7vw,110px);line-height:.96;letter-spacing:-.06em;transform:none!important}
+@media(max-width:760px){.contact-copy h2{font-size:clamp(28px,10vw,52px);line-height:1;letter-spacing:-.04em}.contact-copy h2 em{font-size:.92em}}
