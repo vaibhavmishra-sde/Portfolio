@@ -9,3 +9,10 @@
 .projects-scene{background-color:#0d1017}.path-scene{background:linear-gradient(135deg,#0b0e14,#15111a)}
 .hero-backdrop{background:radial-gradient(circle at 68% 38%,#573521 0,#211820 24%,#080a0f 68%)}
 .hero-grid{opacity:.12;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:110px 110px}
+.section-copy:before{content:'PRODUCT-MINDED BUILDER  /  FRONTEND + AI';display:block;margin-bottom:18px;font:600 10px 'JetBrains Mono';letter-spacing:.16em;color:var(--orange)}
+.section-copy h2{max-width:560px;text-wrap:balance;text-shadow:0 8px 32px rgba(0,0,0,.28)}
+.section-copy .lead{max-width:620px;font-weight:600;letter-spacing:-.025em;color:#eee9df}
+.section-copy .muted{max-width:560px;font-size:15px;color:#aeb2bd}
+.hero-sub{max-width:680px;font-weight:600;letter-spacing:-.025em;color:#e7e2d9;text-wrap:balance}
+.eyebrow{font-weight:600;text-shadow:0 0 18px rgba(255,122,26,.18)}
+.stats strong{font-size:clamp(24px,3vw,34px);letter-spacing:-.06em}.stats span{letter-spacing:.12em}
