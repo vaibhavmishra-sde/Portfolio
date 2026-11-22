@@ -72,6 +72,7 @@
 .intro-video video{animation:samuraiPush 24s cubic-bezier(.2,.55,.35,1) forwards}
 @keyframes samuraiPush{0%{transform:scale(1) translate3d(0,0,0)}55%{transform:scale(1.1) translate3d(0,-1.5%,0)}100%{transform:scale(1.2) translate3d(0,-3%,0)}}
 @media(max-width:760px){.intro-video video{animation-duration:20s}}
+.scroll-cue{cursor:pointer;padding:8px 10px 8px 0;transition:color .25s ease,transform .25s ease;text-transform:uppercase}.scroll-cue:hover{color:#f3efe6;transform:translateY(-3px)}.scroll-cue:hover span{display:inline-block;animation:scrollCueBounce .7s ease-in-out infinite alternate}@keyframes scrollCueBounce{to{transform:translateY(5px)}}
 @media(prefers-reduced-motion:reduce){.intro-video video{animation:none}}
 .intro-video video{animation-duration:10s}
 .cinematic-nav .mark{display:inline-flex;align-items:center;gap:7px;font:800 clamp(20px,2vw,27px) Unbounded;letter-spacing:-.13em;line-height:1;color:#f3efe6;text-shadow:0 0 22px rgba(243,239,230,.12);transition:transform .25s ease,color .25s ease}.cinematic-nav .mark span{display:inline-grid;place-items:center;width:7px;height:7px;margin:0;color:var(--orange);font-size:0;background:var(--orange);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);box-shadow:0 0 14px rgba(255,122,26,.7);transition:transform .25s ease,box-shadow .25s ease}.cinematic-nav .mark:hover{color:#fff;transform:translateY(-2px)}.cinematic-nav .mark:hover span{transform:rotate(45deg) scale(1.15);box-shadow:0 0 20px rgba(255,122,26,.95)}
