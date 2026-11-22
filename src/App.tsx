@@ -13,9 +13,10 @@ export default function App() {
   const [menu, setMenu] = useState(false);
   const [introVisible, setIntroVisible] = useState(true);
   const [introClosing, setIntroClosing] = useState(false);
+  const finishIntro = () => { if (introClosing) return; setIntroClosing(true); window.setTimeout(() => setIntroVisible(false), 900); };
   useEffect(() => { document.body.classList.toggle('intro-active', introVisible); return () => document.body.classList.remove('intro-active'); }, [introVisible]);
   return <div className="cinematic-shell"><div className="grain" />
-    {introVisible && <div className={`intro-video${introClosing ? ' is-closing' : ''}`} role="dialog" aria-label="Portfolio intro"><video autoPlay muted playsInline onEnded={() => { setIntroClosing(true); window.setTimeout(() => setIntroVisible(false), 900); }} src="/samurai-intro.mp4" /><div className="intro-video-shade" /><div className="intro-video-copy"><span>VAIBHAV MISHRA</span><b>ENTER THE EXPERIENCE</b></div><button type="button" onClick={() => setIntroVisible(false)}>Skip intro <span>↗</span></button></div>}
+    {introVisible && <div className={`intro-video${introClosing ? ' is-closing' : ''}`} role="dialog" aria-label="Portfolio intro"><video autoPlay muted playsInline preload="auto" onTimeUpdate={(event) => { if (event.currentTarget.currentTime >= 10) { event.currentTarget.pause(); finishIntro(); } }} onEnded={finishIntro} src="/samurai-intro.mp4" /><div className="intro-video-shade" /><div className="intro-video-copy"><span>VAIBHAV MISHRA</span><b>ENTER THE EXPERIENCE</b></div><button type="button" onClick={() => setIntroVisible(false)}>Skip intro <span>↗</span></button></div>}
     <header className="cinematic-nav"><a href="#top" className="mark">VM<span>◆</span></a><nav className={menu ? 'open' : ''}>{[['about','About'],['projects','Missions'],['skills','Arsenal'],['contact','Summon me']].map(([id,label]) => <a key={id} href={'#'+id} onClick={() => setMenu(false)}>{label}</a>)}</nav><a className="nav-cta" href={'mailto:'+data.personal.email}>Work with me <ArrowUpRight size={15}/></a><button className="menu-button" onClick={() => setMenu(!menu)} aria-label="Toggle menu">{menu ? <X/> : <Menu/>}</button></header>
     <main id="top">
       <video className="global-background-video" src="/media/hero-background.mp4" autoPlay muted loop playsInline aria-hidden="true" />
