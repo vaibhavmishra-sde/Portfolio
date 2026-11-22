@@ -1,4 +1,6 @@
-.hero:after{content:'';position:absolute;z-index:0;top:170px;right:8%;width:190px;height:250px;border:1px solid rgba(82,107,93,.35);border-radius:48% 48% 10px 10px;background:linear-gradient(180deg,rgba(20,24,24,.05),rgba(20,24,24,.35)),url('/vaibhav-mishra.jpg') center 22%/cover;box-shadow:0 20px 55px rgba(25,28,27,.18);transform:rotate(3deg);animation:portraitFloat 8s ease-in-out infinite;}
+.hero:after{display:none}
 .hero h1,.hero-bottom,.scroll-cue{position:relative;z-index:1}
 @keyframes portraitFloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
 @media(max-width:700px){.hero:after{top:135px;right:8%;width:105px;height:145px;opacity:.88}.hero h1{position:relative;z-index:2}}
+.portrait-card{background:radial-gradient(circle at 72% 24%,rgba(255,122,26,.3),transparent 22%),linear-gradient(145deg,#17151a 0%,#0d0e13 55%,#07080c 100%);border:1px solid rgba(255,122,26,.25);box-shadow:0 24px 65px rgba(0,0,0,.3)}
+.portrait-card img{display:none}.portrait-card:before{content:'VM';position:absolute;inset:12%;display:flex;align-items:flex-start;padding-top:12%;border:1px solid rgba(255,122,26,.22);font:800 clamp(64px,12vw,130px) Unbounded;letter-spacing:-.12em;color:#f3efe6}.portrait-card:after{background:linear-gradient(180deg,transparent 45%,#07080c)}
