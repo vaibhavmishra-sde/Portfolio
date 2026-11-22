@@ -4,3 +4,8 @@
 @media(max-width:700px){.hero:after{top:135px;right:8%;width:105px;height:145px;opacity:.88}.hero h1{position:relative;z-index:2}}
 .portrait-card{background:radial-gradient(circle at 72% 24%,rgba(255,122,26,.3),transparent 22%),linear-gradient(145deg,#17151a 0%,#0d0e13 55%,#07080c 100%);border:1px solid rgba(255,122,26,.25);box-shadow:0 24px 65px rgba(0,0,0,.3)}
 .portrait-card img{display:none}.portrait-card:before{content:'VM';position:absolute;inset:12%;display:flex;align-items:flex-start;padding-top:12%;border:1px solid rgba(255,122,26,.22);font:800 clamp(64px,12vw,130px) Unbounded;letter-spacing:-.12em;color:#f3efe6}.portrait-card:after{background:linear-gradient(180deg,transparent 45%,#07080c)}
+.cinematic-shell{background:#080a0f;background-image:radial-gradient(ellipse at 12% 18%,rgba(255,122,26,.16),transparent 30%),radial-gradient(ellipse at 86% 62%,rgba(91,69,139,.18),transparent 34%),linear-gradient(115deg,#080a0f 0%,#10131b 48%,#0b0d14 100%);}
+.scene{background:linear-gradient(180deg,rgba(8,10,15,.72),rgba(8,10,15,.93)),radial-gradient(circle at 90% 20%,rgba(255,122,26,.08),transparent 28%)}
+.projects-scene{background-color:#0d1017}.path-scene{background:linear-gradient(135deg,#0b0e14,#15111a)}
+.hero-backdrop{background:radial-gradient(circle at 68% 38%,#573521 0,#211820 24%,#080a0f 68%)}
+.hero-grid{opacity:.12;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:110px 110px}
