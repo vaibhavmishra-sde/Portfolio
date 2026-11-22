@@ -17,6 +17,13 @@
 .eyebrow{font-weight:600;text-shadow:0 0 18px rgba(255,122,26,.18)}
 .stats strong{font-size:clamp(24px,3vw,34px);letter-spacing:-.06em}.stats span{letter-spacing:.12em}
 .about-scene{background:radial-gradient(circle at 7% 50%,rgba(255,122,26,.11),transparent 27%),linear-gradient(115deg,#090b10 0%,#11151d 50%,#0a0c12 100%);}
+.about-scene{isolation:isolate;overflow:hidden}
+.about-scene:before,.about-scene:after{content:'';position:absolute;z-index:-1;pointer-events:none;opacity:.72;filter:blur(1px);mix-blend-mode:screen}
+.about-scene:before{left:-8%;bottom:-12%;width:54%;height:74%;background:radial-gradient(ellipse at 45% 100%,rgba(255,86,18,.85) 0 4%,rgba(255,122,26,.5) 13%,transparent 42%),radial-gradient(ellipse at 18% 92%,rgba(255,196,87,.55) 0 5%,transparent 25%),radial-gradient(ellipse at 73% 95%,rgba(235,54,17,.58) 0 7%,transparent 30%);clip-path:polygon(0 100%,0 62%,12% 76%,20% 34%,29% 69%,39% 18%,49% 65%,59% 30%,69% 72%,81% 42%,90% 77%,100% 54%,100% 100%);animation:builderFlame 5s ease-in-out infinite alternate}
+.about-scene:after{right:-10%;bottom:-18%;width:48%;height:68%;background:radial-gradient(ellipse at 50% 100%,rgba(255,113,24,.6),transparent 45%),radial-gradient(ellipse at 30% 82%,rgba(255,201,92,.42),transparent 25%);clip-path:polygon(0 100%,0 74%,15% 82%,24% 42%,35% 72%,47% 20%,58% 73%,69% 36%,80% 76%,91% 52%,100% 70%,100% 100%);animation:builderFlame 4s ease-in-out infinite alternate-reverse}
+@keyframes builderFlame{from{transform:translateY(14px) scaleY(.88);filter:blur(3px)}to{transform:translateY(-8px) scaleY(1.04);filter:blur(1px)}}
+.about-grid{position:relative;z-index:1}.section-copy{animation:builderReveal 1s cubic-bezier(.2,.8,.2,1) both;animation-timeline:view();animation-range:entry 12% cover 34%}
+@keyframes builderReveal{from{opacity:0;transform:translateY(38px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
 .about-grid{grid-template-columns:minmax(0,860px);justify-content:center}.portrait-card{display:none}.section-copy{width:100%;max-width:820px}
 .about-scene .scene-tag{top:92px}
 .about-grid{gap:clamp(48px,8vw,132px);margin-top:90px}
@@ -29,6 +36,8 @@
 .section-copy h2 em{font-size:1.08em;color:#ff7a1a}
 .section-copy .lead{font-size:clamp(17px,1.55vw,22px);line-height:1.5;margin-bottom:22px}
 .section-copy .muted{font-size:clamp(13px,1.1vw,16px);line-height:1.75}
+.section-copy .muted:before{content:'Curious by nature. Deliberate by design. ';color:#e7e2d9;font-weight:600}
 .stats{gap:clamp(22px,4vw,52px);margin-top:46px}.stats>div{min-width:92px}.stats strong{color:#ff8a36}.stats span{display:block;margin-top:8px;line-height:1.4}
 @media(max-width:800px){.about-scene{padding-top:120px;padding-bottom:100px}.about-scene .scene-tag{top:62px}.about-grid{grid-template-columns:1fr;gap:52px;margin-top:46px}.portrait-card{max-width:460px;margin:0 auto}.section-copy{max-width:620px;margin:0 auto}.section-copy:before{font-size:9px;letter-spacing:.12em}.section-copy h2{font-size:clamp(42px,12vw,68px);line-height:.9}.section-copy .lead{font-size:18px;line-height:1.55}.stats{margin-top:38px;justify-content:space-between;gap:14px}.stats strong{font-size:26px}.stats span{font-size:9px;letter-spacing:.08em}}
 @media(max-width:430px){.about-scene{padding-left:20px;padding-right:20px}.portrait-card{aspect-ratio:1 / 1.12}.portrait-caption{font-size:9px}.section-copy h2{font-size:clamp(39px,13vw,58px)}.section-copy .lead{font-size:16px}.section-copy .muted{font-size:13px}.stats>div{min-width:0}.stats strong{font-size:22px}.stats span{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.about-scene:before,.about-scene:after,.section-copy{animation:none}}
