@@ -1,7 +1,7 @@
-# 🚀 Vaibhav Mishra — Data Analyst Portfolio
+# 🚀 Vaibhav Mishra — Software  devloper   Portfolio
 
 
-A modern, premium, responsive personal portfolio website built for **Vaibhav Mishra** — Data Analyst | Business Analytics | Python | SQL | Power BI.
+A modern, premium, responsive personal portfolio website built for **Vaibhav Mishra** —  | Business Analytics | Python | SQL | Power BI.
 
 ## 🌐 Live Demo
 
