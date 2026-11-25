@@ -1,7 +1,7 @@
 # 🚀 Vaibhav Mishra — Software  devloper   Portfolio
 
 
-A modern, premium, responsive personal portfolio website built for **Vaibhav Mishra** —  | Business Analytics | Python | SQL | Power BI.
+A modern, premium, responsive personal portfolio website built for **Vaibhav Mishra** —  Software  Devloper | SQL | HTML| CSS |Javascript | React | Vite | Node | .
 
 ## 🌐 Live Demo
 
